@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Business Pillars | Royal Kings Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 
@@ -24,7 +25,7 @@ body{font-family:'Raleway',sans-serif;background:var(--deep);color:var(--text);o
 /* ═══ UNIFIED NAV ═══ */
 #mainNav{position:fixed;top:0;width:100%;z-index:1000;padding:0 40px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.2);transition:all 0.3s ease;}
 #mainNav.scrolled{background:rgba(10,10,15,0.99);box-shadow:0 2px 20px rgba(0,0,0,0.5);}
-.nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
+/* .nav-logo moved to NAV LOGO WITH BRAND TEXT section */
 .nav-logo img{height:44px;width:auto;object-fit:contain;transition:height 0.3s;}
 nav.scrolled .nav-logo img{height:36px;}
 .nav-links{display:flex;align-items:center;gap:20px;flex:1;justify-content:flex-end;}
@@ -241,11 +242,42 @@ footer{background:var(--deep);border-top:1px solid rgba(201,168,76,0.14);padding
 .service-pill:hover{background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.5);}
 @media(max-width:768px){.pillar-page-section{padding:60px 20px;}}
 
+
+/* ═══ NAV LOGO WITH BRAND TEXT ═══ */
+.nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;gap:10px;}
+.nav-logo-img{height:42px;width:auto;object-fit:contain;flex-shrink:0;}
+.nav-brand-text{font-family:'Cinzel',serif;font-size:13px;letter-spacing:2.5px;font-weight:700;color:rgba(240,236,224,0.95);text-transform:uppercase;white-space:nowrap;line-height:1;}
+@media(max-width:1000px){.nav-brand-text{font-size:11px;letter-spacing:1.5px;}}
+@media(max-width:640px){.nav-brand-text{display:none;}}
+
+/* ═══ TYPOGRAPHY UPGRADE — Inter font, improved readability ═══ */
+body{font-family:'Inter','Raleway',sans-serif;}
+.body-text,.body-text p,.aw-card-desc,.vc-desc,.post-text,.card-text,
+.testi-text,.setup-steps,.intro-bar p,.page-intro p,.intro p,
+p,li{font-weight:400;color:rgba(255,255,255,0.82);line-height:1.9;font-size:15px;}
+.body-text,.body-text p{font-size:15.5px;font-weight:400;line-height:2;}
+/* Small labels — increase weight */
+.section-eyebrow,.eyebrow,.yr-count,.section-count,.post-date,
+.vc-tag,.aw-card-body,.news-tag,.vid-type,.aw-btn-label{font-weight:600;}
+/* Muted text — keep gold theme but improve contrast */
+.aw-card-desc,.vc-desc,.post-text,.card-text,.testi-text{color:rgba(255,255,255,0.80);}
+.stat-lbl,.sl,.yr-count,.section-count{color:rgba(200,190,170,0.85);font-weight:500;}
+/* Navigation text sharper */
+.nav-links a,.mobile-drawer a{font-weight:700;letter-spacing:2px;}
+/* Headings keep Cinzel/Cormorant but body upgrades */
+h1,h2,h3,h4,h5,h6{font-family:'Cinzel',serif;}
+.sec-title,.section-title,.page-hero h1,.page-hero-title{font-family:'Cormorant Garamond',serif;}
+/* Footer text */
+.footer-brand p,.footer-col a{font-family:'Inter',sans-serif;font-weight:400;color:rgba(200,190,170,0.75);}
+.footer-col a:hover{color:rgba(255,255,255,0.9);}
 </style>
 </head>
 <body>
 <nav id="mainNav" role="navigation" aria-label="Main navigation">
-  <a class="nav-logo" href="index.html"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/XSgOr7vEzx2UoRJ7/name-banner02-mv0J0ZJEjoi3Vx6o.png" alt="ROYAL KINGS GROUP"></a>
+  <a class="nav-logo" href="index.html" aria-label="Royal Kings Group home">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAsCAYAAAAq/ZsdAAAQUklEQVR42tWaeZRcVZ3HP79736ulq/fubJ0EOglZ6OxRIOBAGhEmrAliJ4ILOHqUo4czekYFxwkJDILiGWacUcdl1HFD7UAQAwSQMYmJiBAEEggESNshkL3TW1VXdb1372/+qOrQCSEQwHNm7jnvnKr37q37/b7f7/7Wgr/iUJDlYLR8lT8L/1+Ggihtdu3y5YGqCtaAFTDlywpYg6rK2uXLA6XNHg/B5cuXGwBVNX9VIu1gtb3dYg/fZy1UPgXjXoCTXoCTnoJxa6HysEnWoO3tth3sm9krkUgc87m8TYkYVBEjHoWtMKZ+5KmtwSkzWmVkwxwqM+MJba2KlFCoFiVyPWRzO3Vf15PxY0+vO7jv0XUtsBsB9WoQQcAfKZkVK1awZs2am6IoOueSSy65RkQeVVUjIv4dIaRtbVbuvNPhPR0EZ9UuvupTdsqECyqSqVrf1UP+5V0U9uwn7u3HDw4CYJJJgpoqUqNHkB7XhGmoZaBQ6HEv/OW+/l//13dOhA0Yg152mZWVK11ZvUREVFUzq1ev3p/NZtOXX375rSJyraoGIhK/LUIKQmkTvxlmjX//x29Mzp21yPb00/X7R8g//bzTfFYBUQIjxiIiZQEp6h1C7AGVikpJT59iG86aj6utYvCJzXe/tOoHy2bDFlU1iKiADkmiq6triTFmQW9v703Nzc27h8i+ZUIKRqz1OMcrE9/1xeoPXXFDIopTu9rv1qijwxsSxqTTgrWl2aqgR1FykdIH5/D5vHqKPpw40TQtWSTF0Bb6fv6L5WM7Hr8Va1HnzJEq+I6coSEyP3Eus/DcD/54xEXnX7Zr1Wpy6zc4azNW0inwvkTieIYIGIPmCziXc5nWM23TpRez/541d97/219e+VFrc0Ok2tvb7YgRI6S1tdUdKZnjIrQczI3W+lXO1f7NpZ+8t/HM+Wd0fu0bUbR3f2CrakWdQ8rCUBSDvOEPK+BRpDxXRRBrcP09Go4aETdf+9nwwIY/Przxru9deKm1PcudMze8CUnJmzoz7e1mzZIlwSkXf/y3DWedfmbHsq9EEkuYTKUJncehOCBACIACSgF/VGJDRNIYkiLECjGKBSxCZA2DhTwaaDTpn78c7vv9wxseX/3Dc89vb49ZssTLa5X4+AitXb4gOPuG9fHL8y/96dgPLvrw9i/9cyROQhsmeCzO8p/xQTIYJpsEuzTiHFPJdJNimknSr4542CZaJl0lhi2+wDY/yAMuyyST4ClfQIFPB/XMDTLEUbFE6ubrw1d+uepn4x65+yPa3mZlScn6vUU/02YxwvbGGX+nt/1IO8efVtxum7Ujc7K+kJ6iO9LT9EJbpYA2SahlzDrfVug/hiP06fRk7UhP1e3l6y/pqfpkarJ+IRyh7zLpQ/PHl9cuDWp0Z8U0fSE9RTsyJ+t226yd408r6m0/0hfrZ3wMIyVMxxjmWOcGbfebvI5puGLJvxxYu8FHO3dYqciUDj9QK4ZzbRXVYkmLECIYYI/G3Bzt55riLkZLcEjxGyXgE8WXuS0+wAEcBkgiJMVQI5bzbBWVQ5C8RyoyRDt32ANrN/r6Dy257Wmvo9F2v/wYuF/3wYq2dhEjOmr+omXVI+pre1Y/4G1lvSGOywuFfvXMMykuD2qZJEkspVObRKgUQyWWr0X7Ccv3vxrtp0ECKjAkEHz53EyRBFcEtbRIkqyWzh4AcYytrDc9q+/3tSPra+tOXbxMjOiKtnY5LkIKRlYtdU8rJ1SddfpVe37zgBcxdrhJFiCPp8UkySDs0YhTbAVXhw2MkxAB/uBz/Nr1kcXTp46VrpdNfgBQTpIEnwzrmWtTvKwRdWKZYpIU8IcfbFVEjN39mwe1onX+xzYpJ8iqpe71pHR0CS1YYHBK7ayFV1Wn0+mBx5/ypqJShlQNQIVSBO2F9VEOJxCIsNZlmWaStNpKFOjQIve4fn7t+tilESCcZ6s40SRY53JUGMOAKA8XcxgtITrMjHmPqaiU/ONPupp0Oj16xsKrcMqKBQuOg9C6da4NbPLUOW19m7eiPjLDX5sXsDFITnEpGF+VoM85GmLLGTbDPXEfsSoCOGCTz/OkL+CHJKuee+M+WoMMmchQcJ5xVQniEMgp1h/hcATUR6Zv81YS82e3tYFl3bqjWrvg6BGB8c8QTgsb61t6H9qgxqYNXg9JphrD7lpH/ZUVJOcm+L6dwoudBf7phzt4ZVuBOWGaXS5mnkmzweXoVUcBxavybptmt8acZivYVBygaXaau648mQlNSYII7MOD5G4v0Bhb+tWXpOYVY9Om94mntXrpopavkJgq1mzVso68gYQWGLxSc+Lpp1UGgYlf2eMkmQBVPFAlhtsHuvnvM7KMvSJDcrQhVWc49YwqHrxtOkGzxTtIGyGPMogy16SZISkKKAN4aqxlwHkapydZfVsLc96VIdVgSY6zjP9EJd+Y3cMDuT4yYkpoVZFkgviVPa4qDEzqxFPml17wa9XutYQWtJbyrikTZmlfFo3yYExJV5ziM4K9MkWfcdx730Ge7yzgY+jtiTG1hk9dMIoX/SB1xqJArVgutFVcVDbvUn4pL2qRzywegyaUXNYxWPBs7xxk9eqDFOogvCpNmBS0rBkYg0Z5tC9LOGXirOFYj03oM9MVwDbUNEc9vWjp+OMFUpGwe47ixhj+4ZImmkcn+e59+/jxg/sxpQSNyoQphzfwvB/kMlvDFEky26S40FbxnB+kHGuTCQ2qUCgq379vHz94YB/zpma49aMnkpgV0jnRkSwKQwm3ohL19GLq6pqHYz02obY2BZBkoj7O5krRmCg2gnwddMzzLJpbx8j6kLqmkFGpgD37ikhQisvuX99DCmGjy9EkAZ8LGxjE44AvBI3UiuURN0AKYc36bjQUFNizr8gJtQlqxwTkCo6UE/a1CrbGIHEpuxKEODcA6UT9cKxvZOUUQK1JaNmJqoekFx5/T0xNc0jzhBRhSkivjll6X4rPtY4mVWvY/9McDz3RQyIwfNLU87PkeKqxOEoB6AgJuD0xno+aOsQKD67tpnfVAPXjQ649fTQX3ZnA3RsxqinBBe9rQCZYHpqWJxXJIReocYxYkxiO9ZhWrqwNKl4jCcqPC4r5WJLzr64j0aUc+F2e/M8LDG6JqDotQXJagPmT49bvv0xghWXBSM4wafrUE6GHLH4RpUECrgsama8VXOt3c9s3XuGGlglUzA6JGiwHv95Pcn2CwhUp3jOtkr03ppHvFeGuqATOWsT54nCsxya0cqUAaGGwO8hUoCi2yqB5GFiRpfvZGPcXBwaMCGZ6QDjG0L1mkPvo51vJsZxKmr0aExyRPpT8ktKF529NJZIaw/X5PVy3zxGckSBoCYi2xUSPR/T+OSKcHFA3MySyIGnBZ5UgU0G+UOwZjvXYhL71TMkIdPfuCKdMRBDVGAZ+nkcBsSApKSlrEQYfLFJoCRjodbRIigmSoMs7wtfJTKScQhzQmKkkOEmS5A46wjsGGdxYREKBRMmqRNtiep6NS0akMkAQDWtrcM937BiO9diE1q8DIHrxpS3y7llIUEqtJSOlUoAvC7mU0eH3ero+308iKdRZS59zjJDgMFU72ggRetTTaAP8v+U5OOixCSkhKscAki7vqeXoO0gh1VW4bZ2bh2N9A6Ow3mOE4vZHH8l6p7ZplNViVCLijtBYBULQjJCxltESsJ+YJHLMtFLLEfl+jRknAUlrIFN+vcMXDttTixG2aZTN+lhznZv+hJES1jciJKDqvPyE3NbigZ7nq2e3iI/z/rCqqDHlyk1phWjJT023aR73hUN+A5Fh84Z9F4iN8AQFZto0MYqoKe0u8tp1xuDjvK+eM12KXT3bfkFuqzovR0vHj262W1vtDRAXN22+s3bODESMP7TUe3QgT0lqHh0sIrGjP5/ndBdS7ZQdxTyhgkZxad5QXa5YRItFwtizvZBl5KBnXhyQczEmjtFiEWKHFiM0il6tICmIGF87ZwbRpi133gAxra32aGZbXjcfMuK3eJ00/rqvb83e/7ugsHmrmERSpLKCcMoE3K59+J4+gmkTcTt3Yxrr0J5+KowlXywS9/ZjG+sgEeI6XwZrCZrHot6juTxBZYZ0Ok22uwcdLIIqduwo3L4uJJlE0knijp2lGLKQ19SsFq06/+zopVu+OH2mke3q9aj1OvM6lsjrL39lZwrbcxsfvX3M4oVGfeRQkGSC9EXvJZw2ifTCBfiuHlJnn46pqiR90Xvp6+klufAsknNbMHXVBGNH4Yt5dLBA+vxWErNbcLv3EMybQTYQMldcgh0/hvT5rWh/DjOyjsTMqSTfPRPEI0ZQX3RjFi802d8/dvtMYbte9iv7esXH129LLFmi6lW6N65cnu3PZavPe6+JB7tVwgS+px8tFPBd3Zj6GrSvn+Jjm9GBAkF9DXHnTuwJTUhVJaa2hqCpCUTw3b0E48cQTp6ARhGSHaCw7hHCSSfgdu/FNo0knDSB4jPbkGQC29BAlD2g1ee9z2T7c9nuP6xcoV6FlUv0LZWxSgX5O1xH07xrJnz+mn/vvOVfI80NhpJOI9bi+7KYhlr8wd5SZllTWar+9ucwlRVgDFJZge/Lon1ZpCoDIpiKNH4gX9ojNwBeS+tHN6I9/TCUrnT3YBpqoubrPht23Pof10za++dv6mUfOFTIf2uFxvZ2K0uWuF2tS+8ac/F5i1/84orI2mSIlFIKjR0S2NLBj13pF60F50rm1nvEmlfvUYrKxZRj7mHWU6O4NFfKdW/iaNIt14e773ngrqZ17e8fwvL2K6eqcrdI5sy2T6+rmTNjXuf1t0QmSIaECfDuVVsz5AWVw83ukLWSo9RR9Qg0xkJUxMeDUfONXwp7nnz6zxtXfrt1kWpuqBvxlupyw/0SIiy2pv+Jld++oP+Z556acPOyUFNB5LN9iA2GlUaHAVR99eIo9/S1ZMQG+GwfmgqiCTcvC3ufee6pJ1d++4LF1vaXG2Fv2Al4U23AG8o9mknWZM/e/Eh7XUXjvLEf/8jk3IEDWux80RsSRsLwrZVnRRBroRgT57td8pS50vz3V9uu9Rt/u+mO7158njUH1Pk33VJ5C/0h43He7JrZelPVBxZfZ7t7Ze+v7nbx7l0YSRlJpwRjDpfOkSo3FAl4j+YL6rXg7ZgmGb10kfH1tb7vjlVfbdq8fhnW+OMh83Y6eIiIPgfvGfnha26qnD6tNd65m671f6S4rSP2cUEEK0ggYi3DW3jqHGisilMTpDQxdWLQ2Ho6dlwT2S1b1+29/ZtfPhkeVlV5s2r2DvZY73B4pZNRF9Vc/oGrTfMJ51Ramyru2svAjlco7N1P3JfFDxa11GNNSFBdRWpUIxUnjiXRNIqscwXf+dL/9P7iju80s/cejPBGpvmv3QXXoW7aMzC5cdo55wYtU1plZP1M0qkmtaY6tKUsJXIx4nyf5gu72Hdwi3/2hbX7nn3ooenwwlCDGBE5HhV7RwkNI2ZRVbHGDxUkAXkeGh3Up6ioACgwMGDh4BQ4cCiwNII6b8pEHP+XhoLRBQuC0p8wbMlpGuFQ3cqUHam1aHu71QULAn0TruN4xv8CEdjC/Gq/rCoAAAAASUVORK5CYII=" alt="Royal Kings Group emblem" class="nav-logo-img">
+    <span class="nav-brand-text">ROYAL KINGS GROUP</span>
+  </a>
   <div class="nav-links" role="menubar">
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
