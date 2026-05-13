@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Testimonials | Royal Kings Group</title>
-<meta name="description" content="Testimonial letters from valued clients of Royal Kings Group across Singapore and Asia-Pacific.">
+<title>Corporate Social Responsibility | Royal Kings Group</title>
+<meta name="description" content="Royal Kings Group's Corporate Social Responsibility — giving back to communities across Singapore through sponsorships, donations, partnerships and awards.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -19,10 +19,10 @@ body{font-family:'Inter','Raleway',sans-serif;background:var(--deep);color:var(-
 @media(max-width:1000px){.nav-brand-text{font-size:11px;letter-spacing:1.5px;}}
 @media(max-width:640px){.nav-brand-text{font-size:10px;letter-spacing:1.5px;}}@media(max-width:400px){.nav-brand-text{font-size:9px;letter-spacing:1px;}}
 .nav-links{display:flex;align-items:center;gap:16px;flex:1;justify-content:flex-end;padding-left:20px;}
-.nav-links a{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(240,236,224,.78);text-decoration:none;transition:color var(--t);white-space:nowrap;position:relative;padding-bottom:3px;}
-.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width var(--t);}
-.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
-.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-links a,.nav-links .nav-dropdown-trigger{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(240,236,224,.78);text-decoration:none;transition:color var(--t);white-space:nowrap;position:relative;padding-bottom:3px;}
+.nav-links a::after,.nav-dropdown-trigger::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width var(--t);}
+.nav-links a:hover::after,.nav-links a.active::after,.nav-dropdown-trigger.active::after{width:100%;}
+.nav-links a:hover,.nav-links a.active,.nav-dropdown-trigger.active{color:var(--gold);}
 .nav-cta{padding:7px 18px!important;border:1px solid var(--gold)!important;color:var(--gold)!important;border-radius:2px!important;}
 .nav-cta:hover{background:var(--gold)!important;color:var(--deep)!important;}
 .nav-cta::after{display:none!important;}
@@ -34,82 +34,108 @@ body{font-family:'Inter','Raleway',sans-serif;background:var(--deep);color:var(-
 .mobile-drawer{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:rgba(10,10,15,.99);border-left:1px solid rgba(201,168,76,.2);z-index:1050;padding:80px 32px 40px;display:flex;flex-direction:column;gap:18px;transition:right .35s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(16px);}
 .mobile-drawer.open{right:0;}
 .mobile-drawer a{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(240,236,224,.8);text-decoration:none;padding:11px 0;border-bottom:1px solid rgba(201,168,76,.1);transition:color var(--t),padding-left var(--t);}
-.mobile-drawer a:hover,.mobile-drawer a.active{color:var(--gold);}
-.mobile-drawer a:hover{padding-left:5px;}
+.mobile-drawer a:hover,.mobile-drawer a.active{color:var(--gold);}.mobile-drawer a:hover{padding-left:5px;}
+.mob-news-group,.mob-about-group{display:flex;flex-direction:column;border-bottom:1px solid rgba(201,168,76,.1);}
+.mob-news-label,.mob-about-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);padding:11px 0 6px;font-weight:700;}
+.mob-sub-link{font-size:10px!important;letter-spacing:2px!important;padding:7px 0 7px 16px!important;border-bottom:none!important;color:rgba(240,236,224,.7)!important;}
+.mob-sub-link.active{color:var(--gold)!important;}.mob-sub-link:hover{color:var(--gold)!important;padding-left:20px!important;}
 .drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1040;display:none;cursor:pointer;}
 .drawer-overlay.open{display:block;}
-@media(max-width:1200px){.nav-links{gap:16px;}.nav-links a{font-size:10.5px;}}
-@media(max-width:1000px){.nav-links{gap:11px;}.nav-links a{font-size:10px;letter-spacing:1.5px;}}
+@media(max-width:1200px){.nav-links{gap:14px;padding-left:16px;}}
+@media(max-width:1000px){.nav-links{gap:11px;padding-left:12px;}.nav-links a,.nav-dropdown-trigger{font-size:10px;letter-spacing:1.5px;}}
 @media(max-width:768px){#mainNav{padding:0 16px;height:62px;}.nav-links{display:none;}.hamburger{display:flex;}}
+/* DROPDOWNS */
+.nav-dropdown{position:relative;display:flex;align-items:center;}
+.nav-dropdown-trigger{cursor:default;display:flex;align-items:center;gap:4px;padding-bottom:3px;}
+.dropdown-arrow{font-size:9px;transition:transform var(--t);}
+.nav-dropdown:hover .dropdown-arrow{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 2px);right:-12px;min-width:210px;background:rgba(10,10,15,.98);border:1px solid rgba(201,168,76,.22);border-radius:3px;padding:10px 0 6px;display:none;flex-direction:column;z-index:1100;box-shadow:0 14px 44px rgba(0,0,0,.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);animation:ddIn .2s ease;}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;background:transparent;}
+@keyframes ddIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown-menu:hover{display:flex;}
+.nav-dropdown-menu a{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(240,236,224,.78);text-decoration:none;padding:11px 20px;display:flex;align-items:center;gap:10px;transition:color var(--t),background var(--t);}
+.nav-dropdown-menu a:hover{color:var(--gold);background:rgba(201,168,76,.08);}
+.dd-icon{font-size:13px;}
+/* HERO */
 .page-hero{position:relative;height:380px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.page-hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80') center/cover;filter:brightness(.24) saturate(.55);}
+.page-hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1600&q=80') center/cover;filter:brightness(.25) saturate(.55);}
 .page-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,15,.2),rgba(10,10,15,.9));}
 .hero-inner{position:relative;z-index:2;text-align:center;padding:0 20px;}
 .eyebrow{font-family:'Cinzel',serif;font-size:9px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;display:block;animation:fU .8s .2s both;}
-.page-hero h1{font-family:'Cinzel',serif;font-size:clamp(28px,4vw,54px);font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--text);animation:fU .8s .4s both;}
+.page-hero h1{font-family:'Cinzel',serif;font-size:clamp(26px,4vw,52px);font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--text);animation:fU .8s .4s both;}
 .page-hero h1 em{color:var(--gold);font-style:normal;}
 .hero-div{width:56px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:16px auto 0;animation:fU .8s .6s both;}
 @keyframes fU{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 .breadcrumb{background:var(--dark);border-bottom:1px solid rgba(201,168,76,.1);padding:12px 60px;}
 .bc{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
 .bc a{color:var(--muted);text-decoration:none;transition:color var(--t);} .bc a:hover{color:var(--gold);}
-.bc .cur{color:var(--gold);}
-
-
-
-
-
-.intro-bar{padding:44px 60px 32px;text-align:center;}
-.intro-bar h2{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--text);margin-bottom:10px;}
+.bc .sep{color:rgba(138,128,112,.4);}.bc .cur{color:var(--gold);}
+.intro-bar{padding:48px 60px 36px;text-align:center;}
+.intro-bar h2{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,40px);font-weight:300;color:var(--text);margin-bottom:10px;}
 .intro-bar h2 em{font-style:italic;color:var(--gold);}
 .gold-rule{width:52px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:12px auto;}
-.intro-bar p{font-size:15px;font-weight:400;color:rgba(255,255,255,.78);max-width:640px;margin:0 auto;line-height:1.9;}
-.stats-bar{background:linear-gradient(to right,var(--deep),var(--mid),var(--deep));border-top:1px solid rgba(201,168,76,.2);border-bottom:1px solid rgba(201,168,76,.2);padding:26px 60px;display:flex;justify-content:center;flex-wrap:wrap;}
-.si{text-align:center;padding:0 44px;border-right:1px solid rgba(201,168,76,.14);}
+.intro-bar p{font-size:15px;font-weight:400;color:rgba(255,255,255,.78);max-width:700px;margin:0 auto;line-height:1.9;}
+.stats-bar{background:linear-gradient(to right,var(--deep),var(--mid),var(--deep));border-top:1px solid rgba(201,168,76,.2);border-bottom:1px solid rgba(201,168,76,.2);padding:24px 60px;display:flex;justify-content:center;flex-wrap:wrap;}
+.si{text-align:center;padding:0 40px;border-right:1px solid rgba(201,168,76,.14);}
 .si:last-child{border-right:none;}
-.sn{font-family:'Cinzel',serif;font-size:30px;color:var(--gold);display:block;line-height:1;}
-.sl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(200,190,170,.85);font-weight:500;margin-top:5px;display:block;}
-.tc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1280px;margin:0 auto;padding:52px 60px 72px;}
-.tc{background:var(--surface);border:1px solid rgba(201,168,76,.13);border-radius:6px;overflow:hidden;transition:border-color var(--t),transform var(--t),box-shadow var(--t);display:flex;flex-direction:column;}
-.tc:hover{border-color:rgba(201,168,76,.38);transform:translateY(-4px);box-shadow:0 14px 40px rgba(0,0,0,.5);}
-.tc-body{padding:22px 20px 20px;display:flex;flex-direction:column;gap:12px;flex:1;}
-.tc-top-row{display:flex;align-items:center;justify-content:space-between;}
-.tc-num{font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:rgba(201,168,76,.22);line-height:1;}
-.tc-stars{color:var(--gold);font-size:12px;letter-spacing:2px;}
-.tc-company-row{display:flex;align-items:flex-start;gap:10px;}
-.tc-doc-icon{width:36px;height:36px;border-radius:50%;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.tc-company-info{flex:1;min-width:0;}
-.tc-company{font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:1px;font-weight:700;color:var(--text);text-transform:uppercase;line-height:1.4;}
-
-.tc-note{font-size:12.5px;font-weight:400;color:rgba(255,255,255,.58);line-height:1.75;flex:1;}
-.tc-btn{margin-top:auto;padding:10px 14px;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.28);border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Cinzel',serif;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700;transition:all var(--t);width:100%;}
-.tc-btn:hover{background:rgba(201,168,76,.18);border-color:var(--gold);color:var(--gold-light);}
-.tc-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
-#lb{position:fixed;inset:0;z-index:9000;display:none;background:rgba(5,5,10,.97);padding:20px;align-items:center;justify-content:center;overflow-y:auto;}
-#lb.open{display:flex;animation:lbIn .25s ease;}
-@keyframes lbIn{from{opacity:0}to{opacity:1}}
-#lb-box{position:relative;display:flex;flex-direction:column;align-items:center;max-width:900px;width:100%;margin:auto;}
-#lb-close{position:absolute;top:-50px;right:0;width:38px;height:38px;border-radius:50%;background:rgba(10,10,15,.9);border:1px solid rgba(201,168,76,.4);color:var(--gold);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--t);z-index:10;}
-#lb-close:hover{background:var(--gold);color:var(--deep);}
-#lb-close:focus-visible{outline:2px solid var(--gold);}
-#lb-spin{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:none;}
-#lb-spin.show{display:block;animation:spin 1s linear infinite;}
-@keyframes spin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-#lb-img{display:block;width:100%;height:auto;max-width:900px;max-height:84vh;object-fit:contain;border:1px solid rgba(201,168,76,.15);border-radius:4px 4px 0 0;box-shadow:0 24px 80px rgba(0,0,0,.9);background:var(--dark);}
-#lb-img.fading{opacity:.25;transition:opacity .15s;}
-#lb-cap{width:100%;padding:13px 18px;background:var(--dark);border:1px solid rgba(201,168,76,.1);border-top:none;border-radius:0 0 4px 4px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
-#lb-title{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text);font-weight:700;}
-.lb-nav{display:flex;align-items:center;gap:10px;}
-.lb-nbtn{width:32px;height:32px;border-radius:50%;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);color:var(--gold);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--t);}
-.lb-nbtn:hover{background:rgba(201,168,76,.2);border-color:var(--gold);}
-.lb-nbtn:disabled{opacity:.25;cursor:not-allowed;}
-#lb-ctr{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--muted);}
-.cta-band{padding:56px 60px;text-align:center;background:linear-gradient(to bottom,var(--dark),var(--deep));border-top:1px solid rgba(201,168,76,.1);}
-.cta-band p{font-size:15px;font-weight:400;color:rgba(255,255,255,.78);max-width:500px;margin:0 auto 28px;line-height:1.9;}
+.sn{font-family:'Cinzel',serif;font-size:28px;color:var(--gold);display:block;line-height:1;}
+.sl{font-size:8.5px;letter-spacing:3px;text-transform:uppercase;color:rgba(200,190,170,.85);font-weight:500;margin-top:5px;display:block;}
+/* YEAR SECTIONS */
+.year-section{padding:44px 0 0;}
+.year-header{display:flex;align-items:center;gap:20px;padding:0 60px;margin-bottom:28px;}
+.year-badge{font-family:'Cinzel',serif;font-size:32px;font-weight:700;color:var(--gold);line-height:1;flex-shrink:0;}
+.year-rule{flex:1;height:1px;background:linear-gradient(to right,rgba(201,168,76,.4),transparent);}
+.year-count{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);flex-shrink:0;}
+/* GRID */
+.csr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:0 60px;}
+/* CARD */
+.csr-card{background:var(--surface);border:1px solid rgba(201,168,76,.13);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:border-color var(--t),transform var(--t),box-shadow var(--t);}
+.csr-card:hover{border-color:rgba(201,168,76,.38);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.55);}
+.csr-photo{position:relative;height:220px;overflow:hidden;cursor:pointer;background:var(--mid);flex-shrink:0;}
+.csr-photo img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;background:var(--dark);filter:brightness(.88) saturate(.8);transition:filter .4s,transform .5s;}
+.csr-card:hover .csr-photo img{filter:brightness(1) saturate(.95);transform:scale(1.04);}
+.csr-photo-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(10,10,15,.7) 100%);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--t);}
+.csr-card:hover .csr-photo-overlay{opacity:1;}
+.csr-zoom{width:46px;height:46px;border-radius:50%;background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.5);display:flex;align-items:center;justify-content:center;}
+.csr-cat-badge{position:absolute;top:10px;left:10px;font-family:'Cinzel',serif;font-size:7px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--deep);background:var(--gold);padding:3px 9px;border-radius:2px;white-space:nowrap;}
+.csr-photo-count{position:absolute;top:10px;right:10px;font-family:'Cinzel',serif;font-size:7px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(240,236,224,.85);background:rgba(10,10,15,.75);padding:2px 8px;border-radius:2px;border:1px solid rgba(201,168,76,.3);}
+.csr-body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.csr-meta{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;flex-wrap:wrap;}
+.csr-org{font-size:10px;font-weight:600;color:rgba(201,168,76,.85);letter-spacing:.5px;line-height:1.4;}
+.csr-date{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);flex-shrink:0;}
+.csr-title{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.8px;font-weight:700;color:var(--text);text-transform:uppercase;line-height:1.45;}
+.csr-desc{font-size:12.5px;font-weight:400;color:rgba(255,255,255,.65);line-height:1.8;flex:1;}
+.csr-btn{margin-top:auto;padding:10px 14px;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.28);border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Cinzel',serif;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700;transition:all var(--t);width:100%;}
+.csr-btn:hover{background:rgba(201,168,76,.18);border-color:var(--gold);}.csr-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.year-gap{height:48px;}
+/* CTA */
+.cta-band{padding:56px 60px;text-align:center;background:linear-gradient(to bottom,var(--dark),var(--deep));border-top:1px solid rgba(201,168,76,.1);margin-top:52px;}
+.cta-band p{font-size:15px;font-weight:400;color:rgba(255,255,255,.78);max-width:500px;margin:0 auto 24px;line-height:1.9;}
 .btn-p{padding:12px 30px;background:var(--gold);color:var(--deep);font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:3px;text-transform:uppercase;font-weight:700;border:none;cursor:pointer;text-decoration:none;transition:all var(--t);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);display:inline-flex;align-items:center;}
 .btn-p:hover{background:var(--gold-light);transform:translateY(-2px);}
 .btn-g{padding:12px 30px;background:transparent;color:var(--gold);font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:3px;text-transform:uppercase;font-weight:700;border:1px solid rgba(201,168,76,.5);cursor:pointer;text-decoration:none;transition:all var(--t);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);display:inline-flex;align-items:center;}
 .btn-g:hover{border-color:var(--gold);background:rgba(201,168,76,.08);}
+/* LIGHTBOX */
+#lb{position:fixed;inset:0;z-index:9000;display:none;background:rgba(4,4,8,.98);padding:32px 20px 40px;align-items:flex-start;justify-content:center;overflow-y:auto;}
+#lb.open{display:flex!important;animation:lbIn .25s ease;}
+@keyframes lbIn{from{opacity:0}to{opacity:1}}
+#lb-box{position:relative;display:flex;flex-direction:column;align-items:center;max-width:960px;width:100%;margin:auto;}
+#lb-close{position:absolute;top:-50px;right:0;width:38px;height:38px;border-radius:50%;background:rgba(10,10,15,.9);border:1px solid rgba(201,168,76,.4);color:var(--gold);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--t);z-index:10;}
+#lb-close:hover{background:var(--gold);color:var(--deep);}
+#lb-spinner{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:none;}
+#lb-spinner.show{display:flex;animation:spin 1s linear infinite;}
+@keyframes spin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+#lb-img{display:block;width:100%;height:auto;max-width:960px;max-height:86vh;object-fit:contain;border:1px solid rgba(201,168,76,.15);border-radius:4px 4px 0 0;box-shadow:0 24px 80px rgba(0,0,0,.9);background:var(--dark);}
+#lb-img.fading{opacity:.2;transition:opacity .12s;}
+#lb-cap{width:100%;padding:14px 18px;background:var(--dark);border:1px solid rgba(201,168,76,.1);border-top:none;border-radius:0 0 4px 4px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+#lb-cap-text{flex:1;}
+#lb-title{font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--gold);}
+#lb-org{font-size:12px;font-weight:400;color:rgba(255,255,255,.65);margin-top:3px;}
+.lb-nav{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.lb-nbtn{width:32px;height:32px;border-radius:50%;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);color:var(--gold);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--t);}
+.lb-nbtn:hover{background:rgba(201,168,76,.2);border-color:var(--gold);}
+.lb-nbtn:disabled{opacity:.25;cursor:not-allowed;}
+#lb-ctr{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--muted);}
 footer{background:var(--deep);border-top:1px solid rgba(201,168,76,.14);padding:56px 60px 30px;}
 .footer-grid{display:grid;grid-template-columns:260px 1fr 1fr 1fr;gap:44px;margin-bottom:44px;}
 .footer-brand{display:flex;flex-direction:column;align-items:flex-start;}
@@ -122,39 +148,9 @@ footer{background:var(--deep);border-top:1px solid rgba(201,168,76,.14);padding:
 .footer-bottom{border-top:1px solid rgba(201,168,76,.08);padding-top:20px;display:flex;justify-content:center;}
 .footer-bottom p{font-size:10px;color:rgba(138,128,112,.5);}
 ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--deep);}::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:2px;}
-@media(max-width:1100px){.tc-grid{grid-template-columns:repeat(3,1fr);padding:44px 32px;}}
-@media(max-width:768px){.tc-grid{grid-template-columns:repeat(2,1fr);padding:32px 18px;}.stats-bar{flex-wrap:wrap;padding:20px;}.si{border-right:none;padding:0 20px;}.breadcrumb,.page-hero{height:280px;}.footer-grid{grid-template-columns:1fr;}#lb-cap{flex-direction:column;align-items:flex-start;}}
-@media(max-width:480px){.tc-grid{grid-template-columns:1fr;}}
+@media(max-width:1024px){.csr-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.csr-grid{grid-template-columns:1fr;padding:0 18px;}.year-header,.breadcrumb,.intro-bar,.stats-bar,.cta-band{padding-left:18px;padding-right:18px;}.page-hero{height:300px;}.stats-bar{flex-wrap:wrap;padding:20px 18px;}.si{border-right:none;padding:0 18px;}.footer-grid{grid-template-columns:1fr;}#lb-cap{flex-direction:column;}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
-
-
-
-/* ─── NEWS DROPDOWN ─── */
-.nav-dropdown{position:relative;display:flex;align-items:center;}
-.nav-dropdown-trigger{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(240,236,224,.78);text-decoration:none;transition:color var(--t);white-space:nowrap;position:relative;padding-bottom:3px;cursor:default;display:flex;align-items:center;gap:4px;}
-.nav-dropdown-trigger::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width var(--t);}
-.nav-dropdown-trigger:hover::after,.nav-dropdown-trigger.active::after{width:100%;}
-.nav-dropdown-trigger:hover,.nav-dropdown-trigger.active{color:var(--gold);}
-.dropdown-arrow{font-size:9px;transition:transform var(--t);}
-.nav-dropdown:hover .dropdown-arrow{transform:rotate(180deg);}
-.nav-dropdown-menu{position:absolute;top:calc(100% + 2px);right:-12px;min-width:200px;margin-top:0;background:rgba(10,10,15,.98);border:1px solid rgba(201,168,76,.22);border-radius:3px;padding:10px 0 6px;display:none;flex-direction:column;z-index:1100;box-shadow:0 14px 44px rgba(0,0,0,.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);animation:ddIn .2s ease;}
-@keyframes ddIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-.nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;background:transparent;}
-
-.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown-menu:hover{display:flex;}
-.nav-dropdown-menu a{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(240,236,224,.78);text-decoration:none;padding:11px 20px;display:flex;align-items:center;gap:10px;transition:color var(--t),background var(--t);white-space:nowrap;}
-.nav-dropdown-menu a:hover{color:var(--gold);background:rgba(201,168,76,.08);}
-.dd-icon{font-size:13px;}
-/* Mobile news sub-menu */
-.mob-news-group{display:flex;flex-direction:column;border-bottom:1px solid rgba(201,168,76,.1);padding-bottom:2px;}
-.mob-news-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);padding:11px 0 6px;font-weight:700;cursor:default;}
-.mob-sub-link{font-size:10px!important;letter-spacing:2px!important;padding:7px 0 7px 16px!important;border-bottom:none!important;color:rgba(240,236,224,.7)!important;display:block;}
-.mob-sub-link.active{color:var(--gold)!important;}
-.mob-sub-link:hover{color:var(--gold)!important;padding-left:20px!important;}
-
-/* Nav spacing adjustments */
-@media(max-width:1200px){.nav-links{gap:14px;padding-left:16px;}}
-@media(max-width:1000px){.nav-links{gap:11px;padding-left:12px;}}
 </style>
 </head>
 <body>
@@ -164,8 +160,9 @@ footer{background:var(--deep);border-top:1px solid rgba(201,168,76,.14);padding:
     <span class="nav-brand-text">ROYAL KINGS GROUP</span>
   </a>
   <div class="nav-links" role="menubar">
-    <a href="index.html">Home</a><div class="nav-dropdown" id="aboutDropdown">
-      <a href="our-story.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+    <a href="index.html">Home</a>
+    <div class="nav-dropdown" id="aboutDropdown">
+      <a href="our-story.html" class="nav-dropdown-trigger active" aria-haspopup="true" aria-expanded="false">
         About Us <span class="dropdown-arrow">&#x25BE;</span>
       </a>
       <div class="nav-dropdown-menu" role="menu">
@@ -173,8 +170,11 @@ footer{background:var(--deep);border-top:1px solid rgba(201,168,76,.14);padding:
         <a href="founder.html" role="menuitem"><span class="dd-icon">&#x1F451;</span> Founder &amp; Chairman</a>
         <a href="csr.html" role="menuitem"><span class="dd-icon">&#x1F91D;</span> Corporate Social Responsibility</a>
       </div>
-    </div><a href="pillars.html">Our Pillars</a>
-    <a href="awards.html">Awards</a><a href="videos.html">Videos</a><div class="nav-dropdown" id="newsDropdown">
+    </div>
+    <a href="pillars.html">Our Pillars</a>
+    <a href="awards.html">Awards</a>
+    <a href="videos.html">Videos</a>
+    <div class="nav-dropdown" id="newsDropdown">
       <a href="news.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
         News <span class="dropdown-arrow">&#x25BE;</span>
       </a>
@@ -183,7 +183,8 @@ footer{background:var(--deep);border-top:1px solid rgba(201,168,76,.14);padding:
         <a href="newspaper-features.html" role="menuitem"><span class="dd-icon">&#x1F4F0;</span> Newspaper Features</a>
       </div>
     </div>
-    <a href="memberships.html">Memberships</a><a href="testimonials.html" class="active">Testimonials</a>
+    <a href="memberships.html">Memberships</a>
+    <a href="testimonials.html">Testimonials</a>
     <a href="management-team.html">Our Team</a>
     <a href="contact.html" class="nav-cta">Contact Us</a>
   </div>
@@ -198,7 +199,7 @@ footer{background:var(--deep);border-top:1px solid rgba(201,168,76,.14);padding:
     <span class="mob-about-label">&#x25BE; About Us</span>
     <a href="our-story.html" onclick="closeDrawer()" class="mob-sub-link">Our Story</a>
     <a href="founder.html" onclick="closeDrawer()" class="mob-sub-link">Founder &amp; Chairman</a>
-    <a href="csr.html" onclick="closeDrawer()" class="mob-sub-link">CSR</a>
+    <a href="csr.html" onclick="closeDrawer()" class="mob-sub-link active">CSR</a>
   </div>
   <a href="pillars.html" onclick="closeDrawer()">Our Pillars</a>
   <a href="awards.html" onclick="closeDrawer()">Awards</a>
@@ -209,7 +210,7 @@ footer{background:var(--deep);border-top:1px solid rgba(201,168,76,.14);padding:
     <a href="newspaper-features.html" onclick="closeDrawer()" class="mob-sub-link">Newspaper Features</a>
   </div>
   <a href="memberships.html" onclick="closeDrawer()">Memberships</a>
-  <a href="testimonials.html" onclick="closeDrawer()" class="active">Testimonials</a>
+  <a href="testimonials.html" onclick="closeDrawer()">Testimonials</a>
   <a href="management-team.html" onclick="closeDrawer()">Our Team</a>
   <a href="contact.html" onclick="closeDrawer()" style="color:var(--gold);">Contact Us</a>
 </nav>
@@ -217,170 +218,340 @@ footer{background:var(--deep);border-top:1px solid rgba(201,168,76,.14);padding:
   <div class="page-hero" role="banner">
     <div class="page-hero-bg" aria-hidden="true"></div>
     <div class="hero-inner">
-      <span class="eyebrow">Client Voices</span>
-      <h1>What Our <em>Clients</em> Say</h1>
+      <span class="eyebrow">Community &amp; Social Responsibility</span>
+      <h1>Corporate <em>Social</em> Responsibility</h1>
       <div class="hero-div"></div>
     </div>
   </div>
   <nav class="breadcrumb" aria-label="Breadcrumb">
-    <div class="bc"><a href="index.html">Home</a><span>&#x203A;</span><span class="cur" aria-current="page">Testimonials</span></div>
+    <div class="bc">
+      <a href="index.html">Home</a><span class="sep">&#x203A;</span>
+      <a href="about.html">About Us</a><span class="sep">&#x203A;</span>
+      <span class="cur" aria-current="page">Corporate Social Responsibility</span>
+    </div>
   </nav>
   <div class="intro-bar">
-    <h2>Trusted by Business Leaders <em>Across Asia-Pacific</em></h2>
+    <h2>Giving Back to <em>Community &amp; Society</em></h2>
     <div class="gold-rule"></div>
-    <p>Royal Kings Group has earned the trust and confidence of clients across Singapore and Asia-Pacific. Click any card to open and read the full testimonial letter from that client.</p>
+    <p>At Royal Kings Group, Corporate Social Responsibility is embedded in our culture — not just what we do, but who we are. From sponsoring community Iftars and cultural celebrations to supporting healthcare programmes, education funds and national service causes, we are proud to contribute meaningfully to the fabric of Singapore society.</p>
   </div>
   <div class="stats-bar">
-    <div class="si"><span class="sn">12</span><span class="sl">Testimonial Letters</span></div>
-    <div class="si"><span class="sn">10+</span><span class="sl">Years Serving Clients</span></div>
-    <div class="si"><span class="sn">5</span><span class="sl">Business Verticals</span></div>
-    <div class="si"><span class="sn">APAC</span><span class="sl">&amp; India Presence</span></div>
+    <div class="si"><span class="sn">19+</span><span class="sl">CSR Initiatives</span></div>
+    <div class="si"><span class="sn">3</span><span class="sl">Years Documented</span></div>
+    <div class="si"><span class="sn">15+</span><span class="sl">Organisations Supported</span></div>
+    <div class="si"><span class="sn">SG</span><span class="sl">Community Impact</span></div>
   </div>
-  <section aria-label="Testimonial letters">
-    <div class="tc-grid">
-<article class="tc" id="t01" itemscope itemtype="https://schema.org/Review">
-  <div class="tc-body">
-    <div class="tc-top-row"><span class="tc-num">01</span><div class="tc-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-    <div class="tc-company-row">
-      <div class="tc-doc-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,.7)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <div class="tc-company-info"><h3 class="tc-company">People's Association</h3></div>
+
+  <!-- 2025 -->
+  <section class="year-section" aria-labelledby="y2025">
+    <div class="year-header">
+      <span class="year-badge" id="y2025">2025</span>
+      <div class="year-rule"></div>
+      <span class="year-count">3 initiatives</span>
     </div>
-    <p class="tc-note">Click below to open the original testimonial letter.</p>
-    <button class="tc-btn" onclick="openLetter('t01','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/01-lBhB3qkKVnEf0IuG.jpg','Testimonial 01')" aria-label="View testimonial letter from People&amp;#39;s Association"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Click here to view testimonial letter</button>
+    <div class="csr-grid">
+<article class="csr-card" id="c01">
+  <div class="csr-photo" onclick="openGallery('c01')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr44-xdb6fQIxbZql9Upu.jpg" alt="TRC National Day Dinner — Silver Sponsor" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🤝 Community Sponsorship</span>
+    <span class="csr-photo-count">2 photos</span>
   </div>
-</article>
-<article class="tc" id="t02" itemscope itemtype="https://schema.org/Review">
-  <div class="tc-body">
-    <div class="tc-top-row"><span class="tc-num">02</span><div class="tc-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-    <div class="tc-company-row">
-      <div class="tc-doc-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,.7)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <div class="tc-company-info"><h3 class="tc-company">Migrant Workers' Centre</h3></div>
-    </div>
-    <p class="tc-note">Click below to open the original testimonial letter.</p>
-    <button class="tc-btn" onclick="openLetter('t02','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/02-pzqQOAU7w02cjXQJ.jpg','Letter 02')" aria-label="View testimonial letter from Migrant Workers&amp;#39; Centre"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Click here to view testimonial letter</button>
-  </div>
-</article>
-<article class="tc" id="t03" itemscope itemtype="https://schema.org/Review">
-  <div class="tc-body">
-    <div class="tc-top-row"><span class="tc-num">03</span><div class="tc-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-    <div class="tc-company-row">
-      <div class="tc-doc-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,.7)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <div class="tc-company-info"><h3 class="tc-company">Yuhua Community Club</h3></div>
-    </div>
-    <p class="tc-note">Click below to open the original testimonial letter.</p>
-    <button class="tc-btn" onclick="openLetter('t03','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/03-fD0r8QFa8q3BWVog.jpg','Letter 03')" aria-label="View testimonial letter from Yuhua Community Club"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Click here to view testimonial letter</button>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Tamils Representative Council (TRC)</span><span class="csr-date">August 2025</span></div>
+    <h3 class="csr-title">TRC National Day Dinner — Silver Sponsor</h3>
+    <p class="csr-desc">Royal Kings Group was honoured to be part of TRC's 60th National Day Dinner, graced by Mr. Edwin Tong, Minister for Law and Second Minister for Home Affairs. As a proud Silver Sponsor, RKG supported the TRC Education Fund — a wonderful night of unity, culture, and community spirit.</p>
+    <button class="csr-btn" onclick="openGallery('c01')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
   </div>
 </article>
-<article class="tc" id="t04" itemscope itemtype="https://schema.org/Review">
-  <div class="tc-body">
-    <div class="tc-top-row"><span class="tc-num">04</span><div class="tc-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-    <div class="tc-company-row">
-      <div class="tc-doc-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,.7)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <div class="tc-company-info"><h3 class="tc-company">Federation of Singapore Indian Muslims (FSIM)</h3></div>
-    </div>
-    <p class="tc-note">Click below to open the original testimonial letter.</p>
-    <button class="tc-btn" onclick="openLetter('t04','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/04-Hyk1uqVKS854m97t.jpg','Letter 04')" aria-label="View testimonial letter from Federation of Singapore Indian Muslims (FSIM)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Click here to view testimonial letter</button>
+<article class="csr-card" id="c02">
+  <div class="csr-photo" onclick="openGallery('c02')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr42-Oq9oCGopnmJZ7HHy.jpg" alt="Semmozhi 25 Tamil Cultural Celebration — SG60" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🎭 Cultural Heritage</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Semmozhi Social, Literary & Music Tamil Association</span><span class="csr-date">17 May 2025</span></div>
+    <h3 class="csr-title">Semmozhi 25 Tamil Cultural Celebration — SG60</h3>
+    <p class="csr-desc">Royal Kings Group was humbled to be acknowledged at Semmozhi 25 — a Tamil cultural celebration held in conjunction with SG60. Recognition was presented by Guest of Honour Mr. K. Shanmugam, Minister for Home Affairs. A reaffirmation of commitment to culture, heritage and community.</p>
+    <button class="csr-btn" onclick="openGallery('c02')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
   </div>
 </article>
-<article class="tc" id="t05" itemscope itemtype="https://schema.org/Review">
-  <div class="tc-body">
-    <div class="tc-top-row"><span class="tc-num">05</span><div class="tc-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-    <div class="tc-company-row">
-      <div class="tc-doc-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,.7)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <div class="tc-company-info"><h3 class="tc-company">Tamils Representative Council (TRC)</h3></div>
-    </div>
-    <p class="tc-note">Click below to open the original testimonial letter.</p>
-    <button class="tc-btn" onclick="openLetter('t05','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/05-n6FbUu59tTabKIwd.jpg','Letter 05')" aria-label="View testimonial letter from Tamils Representative Council (TRC)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Click here to view testimonial letter</button>
+<article class="csr-card" id="c03">
+  <div class="csr-photo" onclick="openGallery('c03')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr38-RcJJTWNNYpPGvwDf.jpg" alt="Jampacked@Radin Mas — Jamiyah Singapore Community Partner" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">📦 Essential Aid</span>
+    <span class="csr-photo-count">2 photos</span>
   </div>
-</article>
-<article class="tc" id="t06" itemscope itemtype="https://schema.org/Review">
-  <div class="tc-body">
-    <div class="tc-top-row"><span class="tc-num">06</span><div class="tc-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-    <div class="tc-company-row">
-      <div class="tc-doc-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,.7)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <div class="tc-company-info"><h3 class="tc-company">Jamiyah Singapore</h3></div>
-    </div>
-    <p class="tc-note">Click below to open the original testimonial letter.</p>
-    <button class="tc-btn" onclick="openLetter('t06','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/06-nq1pFezYsc05YuMf.jpg','Letter 06')" aria-label="View testimonial letter from Jamiyah Singapore"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Click here to view testimonial letter</button>
-  </div>
-</article>
-<article class="tc" id="t07" itemscope itemtype="https://schema.org/Review">
-  <div class="tc-body">
-    <div class="tc-top-row"><span class="tc-num">07</span><div class="tc-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-    <div class="tc-company-row">
-      <div class="tc-doc-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,.7)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <div class="tc-company-info"><h3 class="tc-company">Sree Narayana Mission (Singapore)</h3></div>
-    </div>
-    <p class="tc-note">Click below to open the original testimonial letter.</p>
-    <button class="tc-btn" onclick="openLetter('t07','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/07-uxlMkkWxwHGqkw2O.jpg','Letter 07')" aria-label="View testimonial letter from Sree Narayana Mission (Singapore)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Click here to view testimonial letter</button>
-  </div>
-</article>
-<article class="tc" id="t08" itemscope itemtype="https://schema.org/Review">
-  <div class="tc-body">
-    <div class="tc-top-row"><span class="tc-num">08</span><div class="tc-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-    <div class="tc-company-row">
-      <div class="tc-doc-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,.7)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <div class="tc-company-info"><h3 class="tc-company">Lembaga Pendatbir Masjid Al-Amin</h3></div>
-    </div>
-    <p class="tc-note">Click below to open the original testimonial letter.</p>
-    <button class="tc-btn" onclick="openLetter('t08','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/08-PW4m64BFXeizKPXS.jpg','Letter 08')" aria-label="View testimonial letter from Lembaga Pendatbir Masjid Al-Amin"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Click here to view testimonial letter</button>
-  </div>
-</article>
-<article class="tc" id="t09" itemscope itemtype="https://schema.org/Review">
-  <div class="tc-body">
-    <div class="tc-top-row"><span class="tc-num">09</span><div class="tc-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-    <div class="tc-company-row">
-      <div class="tc-doc-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,.7)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <div class="tc-company-info"><h3 class="tc-company">Singapore Kadaiyanallur Muslim League</h3></div>
-    </div>
-    <p class="tc-note">Click below to open the original testimonial letter.</p>
-    <button class="tc-btn" onclick="openLetter('t09','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/09-gR1ToUskWksCBAwg.jpg','Letter 09')" aria-label="View testimonial letter from Singapore Kadaiyanallur Muslim League"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Click here to view testimonial letter</button>
-  </div>
-</article>
-<article class="tc" id="t10" itemscope itemtype="https://schema.org/Review">
-  <div class="tc-body">
-    <div class="tc-top-row"><span class="tc-num">10</span><div class="tc-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-    <div class="tc-company-row">
-      <div class="tc-doc-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,.7)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <div class="tc-company-info"><h3 class="tc-company">Bethel Community Services</h3></div>
-    </div>
-    <p class="tc-note">Click below to open the original testimonial letter.</p>
-    <button class="tc-btn" onclick="openLetter('t10','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/10-QNfbsUK4tJwbik1V.jpg','Letter 10')" aria-label="View testimonial letter from Bethel Community Services"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Click here to view testimonial letter</button>
-  </div>
-</article>
-<article class="tc" id="t11" itemscope itemtype="https://schema.org/Review">
-  <div class="tc-body">
-    <div class="tc-top-row"><span class="tc-num">11</span><div class="tc-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-    <div class="tc-company-row">
-      <div class="tc-doc-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,.7)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <div class="tc-company-info"><h3 class="tc-company">Masjid Maarof</h3></div>
-    </div>
-    <p class="tc-note">Click below to open the original testimonial letter.</p>
-    <button class="tc-btn" onclick="openLetter('t11','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/11-nuFg2RYdI6Rf0jDB.jpg','Letter 11')" aria-label="View testimonial letter from Masjid Maarof"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Click here to view testimonial letter</button>
-  </div>
-</article>
-<article class="tc" id="t12" itemscope itemtype="https://schema.org/Review">
-  <div class="tc-body">
-    <div class="tc-top-row"><span class="tc-num">12</span><div class="tc-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-    <div class="tc-company-row">
-      <div class="tc-doc-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,.7)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <div class="tc-company-info"><h3 class="tc-company">Contribute.sg</h3></div>
-    </div>
-    <p class="tc-note">Click below to open the original testimonial letter.</p>
-    <button class="tc-btn" onclick="openLetter('t12','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/12-zYGnzaMxaDlWgUP3.jpg','Testimonial 12')" aria-label="View testimonial letter from Contribute.sg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Click here to view testimonial letter</button>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Jamiyah Singapore</span><span class="csr-date">2025</span></div>
+    <h3 class="csr-title">Jampacked@Radin Mas — Jamiyah Singapore Community Partner</h3>
+    <p class="csr-desc">Royal Kings Group contributed to the Jampacked@Radin Mas initiative, recognised by Mr. Melvin Yong Yik Chye, MP for Radin Mas SMC. As a dedicated Community Partner of Jamiyah Singapore, RKG provided essential items to those in need as part of its Corporate Social Responsibility commitment.</p>
+    <button class="csr-btn" onclick="openGallery('c03')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
   </div>
 </article>
     </div>
   </section>
+  <div class="year-gap"></div>
+
+  <!-- 2024 -->
+  <section class="year-section" aria-labelledby="y2024">
+    <div class="year-header">
+      <span class="year-badge" id="y2024">2024</span>
+      <div class="year-rule"></div>
+      <span class="year-count">8 initiatives</span>
+    </div>
+    <div class="csr-grid">
+<article class="csr-card" id="c04">
+  <div class="csr-photo" onclick="openGallery('c04')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr36-iR1EQEsKWRvpnpiC.jpg" alt="Kolam Ayer 59th National Day Celebration" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🇸🇬 National Day</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Kolam Ayer Citizens' Consultative Committee</span><span class="csr-date">August 2024</span></div>
+    <h3 class="csr-title">Kolam Ayer 59th National Day Celebration</h3>
+    <p class="csr-desc">Royal Kings Group received a prestigious recognition from the Kolam Ayer Citizens' Consultative Committee, presented by Ms. Josephine Teo, Minister for Digital Development and Information, and Dr. Wan Rizal, Adviser to Jalan Besar GRC.</p>
+    <button class="csr-btn" onclick="openGallery('c04')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+<article class="csr-card" id="c05">
+  <div class="csr-photo" onclick="openGallery('c05')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr34-5dhhtDvDQfpyqpDz.jpg" alt="Yuhua Community Club — Donation Appreciation" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🏛 Community Contribution</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Yuhua Community Club</span><span class="csr-date">2024</span></div>
+    <h3 class="csr-title">Yuhua Community Club — Donation Appreciation</h3>
+    <p class="csr-desc">Ms. Grace Fu, Minister for Sustainability, presented the token of appreciation to Royal Kings Group for funds donated to Yuhua Community Club — affirming RKG's ongoing support for grassroots community development across Singapore.</p>
+    <button class="csr-btn" onclick="openGallery('c05')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+<article class="csr-card" id="c06">
+  <div class="csr-photo" onclick="openGallery('c06')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr32-No2GKHCwe9W23nc8.jpg" alt="Masjid Sultan — Ramadan Contributions 2024" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🕌 Religious Community</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Masjid Sultan</span><span class="csr-date">Ramadan 2024</span></div>
+    <h3 class="csr-title">Masjid Sultan — Ramadan Contributions 2024</h3>
+    <p class="csr-desc">Royal Kings Group was awarded by the Chairman of Sultan Mosque, Haji Abdul Salim Ahmed Ibrahim PBM FSIArb, FAIADR, for generous contributions during Ramadan — strengthening the spirit of giving and interfaith community fellowship.</p>
+    <button class="csr-btn" onclick="openGallery('c06')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+<article class="csr-card" id="c07">
+  <div class="csr-photo" onclick="openGallery('c07')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr30-pmwV97JvSEDPZw8A.jpg" alt="FSIM Harmonious Community Iftar — Bencoolen Masjid" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🤲 Interfaith Community</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Federation of Singapore Indian Muslims (FSIM)</span><span class="csr-date">24 March 2024</span></div>
+    <h3 class="csr-title">FSIM Harmonious Community Iftar — Bencoolen Masjid</h3>
+    <p class="csr-desc">Minister of State Mr. Alvin Tan, MP for Tanjong Pagar GRC, presented the token of appreciation to Royal Kings Group for generously sponsoring the FSIM Harmonious Community Iftar at Bencoolen Masjid — promoting harmony and unity across Singapore.</p>
+    <button class="csr-btn" onclick="openGallery('c07')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+<article class="csr-card" id="c08">
+  <div class="csr-photo" onclick="openGallery('c08')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr28-E8jwIfI1u1o1ARi3.jpg" alt="Sree Narayana Mission — Iftar for Community Leaders" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🤲 Interfaith Community</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Sree Narayana Mission Singapore</span><span class="csr-date">2024</span></div>
+    <h3 class="csr-title">Sree Narayana Mission — Iftar for Community Leaders</h3>
+    <p class="csr-desc">Assoc. Prof. Dr Muhammad Faishal Ibrahim, Minister of State, Ministry of Home Affairs & National Development, presented a token of appreciation for sponsoring the Sree Narayana Mission Iftar — bringing together community leaders and partners from various organisations.</p>
+    <button class="csr-btn" onclick="openGallery('c08')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+<article class="csr-card" id="c09">
+  <div class="csr-photo" onclick="openGallery('c09')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr26-0ZTJ5qUzu3TrA7x2.jpg" alt="Kolam Ayer Division — Lunar New Year Lunch 2024" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🎊 Community Celebration</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Kolam Ayer Division, Jalan Besar GRC</span><span class="csr-date">February 2024</span></div>
+    <h3 class="csr-title">Kolam Ayer Division — Lunar New Year Lunch 2024</h3>
+    <p class="csr-desc">Dr. Wan Rizal, Chairman of the Jalan Besar Town Council and MP for Jalan Besar GRC, presented the Token of Appreciation to Royal Kings Group for generous support towards the Kolam Ayer Division Lunar New Year Lunch 2024.</p>
+    <button class="csr-btn" onclick="openGallery('c09')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+<article class="csr-card" id="c10">
+  <div class="csr-photo" onclick="openGallery('c10')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr24-b6PAw3ftyki3yPJr.jpg" alt=""Inclusivity 4 All" Live Concert Charity Sponsorship" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">♿ Inclusive Society</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Marine Parade GRC</span><span class="csr-date">2024</span></div>
+    <h3 class="csr-title">"Inclusivity 4 All" Live Concert Charity Sponsorship</h3>
+    <p class="csr-desc">Speaker of Parliament and MP for Marine Parade GRC, Mr. Seah Kian Peng, awarded a Certificate of Appreciation to Royal Kings Group for sponsoring the Inclusivity 4 All Live Concert Charity Show — championing an inclusive and caring Singapore.</p>
+    <button class="csr-btn" onclick="openGallery('c10')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+<article class="csr-card" id="c11">
+  <div class="csr-photo" onclick="openGallery('c11')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr22-g49WdoP3I9ASXeLC.jpg" alt="Night Respite @ Sree Narayana Mission — 24/7 Caregiver Support" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🏥 Healthcare & Welfare</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Sree Narayana Mission Singapore</span><span class="csr-date">2024</span></div>
+    <h3 class="csr-title">Night Respite @ Sree Narayana Mission — 24/7 Caregiver Support</h3>
+    <p class="csr-desc">Royal Kings Group proudly sponsored the launch of the Night Respite @ Sree Narayana Mission — a 24/7 programme offering caregivers relief from night duties. Assoc. Prof. Muhammad Faishal Ibrahim and SNM CEO Mr. S. Devendran personally thanked RKG for making this life-changing programme possible.</p>
+    <button class="csr-btn" onclick="openGallery('c11')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+    </div>
+  </section>
+  <div class="year-gap"></div>
+
+  <!-- 2023 -->
+  <section class="year-section" aria-labelledby="y2023">
+    <div class="year-header">
+      <span class="year-badge" id="y2023">2023</span>
+      <div class="year-rule"></div>
+      <span class="year-count">8 initiatives</span>
+    </div>
+    <div class="csr-grid">
+<article class="csr-card" id="c12">
+  <div class="csr-photo" onclick="openGallery('c12')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr20-jAk8YBX91puSmynT.jpg" alt="Marine Parade GROs & Geylang Serai — Community Award" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🏛 Community Contribution</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">South East CDC / Marine Parade GROs</span><span class="csr-date">2023</span></div>
+    <h3 class="csr-title">Marine Parade GROs & Geylang Serai — Community Award</h3>
+    <p class="csr-desc">The Honourable Mayor of Southeast District and Chairman of South East CDC, Mr. Mohd Fahmi Aliman, awarded Royal Kings Consultancy Pte Ltd for outstanding contributions to Marine Parade GROs and Geylang Serai community development.</p>
+    <button class="csr-btn" onclick="openGallery('c12')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+<article class="csr-card" id="c13">
+  <div class="csr-photo" onclick="openGallery('c13')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr18-mpRp4uhXrhkDYZhp.jpg" alt="President of Singapore Award — Contributions to LISHA" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🏅 Presidential Recognition</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">LISHA Singapore</span><span class="csr-date">2023</span></div>
+    <h3 class="csr-title">President of Singapore Award — Contributions to LISHA</h3>
+    <p class="csr-desc">The Honourable President of the Republic of Singapore, Mr. Tharman Shanmugaratnam, awarded Royal Kings Consultancy Pte Ltd for outstanding contributions to LISHA — one of Singapore's most distinguished community honours.</p>
+    <button class="csr-btn" onclick="openGallery('c13')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+<article class="csr-card" id="c14">
+  <div class="csr-photo" onclick="openGallery('c14')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr16-rcwWRnixlQtgg49f.jpg" alt="Federation of Singapore Indian Muslims (FSIM) — Long-Term Support" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🌟 Community Partnership</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Federation of Singapore Indian Muslims (FSIM)</span><span class="csr-date">2023</span></div>
+    <h3 class="csr-title">Federation of Singapore Indian Muslims (FSIM) — Long-Term Support</h3>
+    <p class="csr-desc">Assoc. Prof. Dr Muhammad Faishal Ibrahim, Minister of State, Ministry of Home Affairs & National Development, awarded Royal Kings Group for many years of steadfast support to FSIM and its community initiatives across Singapore.</p>
+    <button class="csr-btn" onclick="openGallery('c14')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+<article class="csr-card" id="c15">
+  <div class="csr-photo" onclick="openGallery('c15')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr14-N1LwH28vZeTkCXXi.jpg" alt="Tharakai Literary Circle — A*STAR Creations Children's Day 2023" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">📚 Education & Culture</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Tharakai Literary Circle / A*STAR Creations</span><span class="csr-date">October 2023</span></div>
+    <h3 class="csr-title">Tharakai Literary Circle — A*STAR Creations Children's Day 2023</h3>
+    <p class="csr-desc">Royal Kings Group received a Token of Appreciation from Tharakai Literary Circle and A*STAR Creations for Children's Day Celebrations 2023, held in the presence of Mr. R. Dhinakaran, former Nominated Member of Parliament and Past President of the Singapore Retailers Association.</p>
+    <button class="csr-btn" onclick="openGallery('c15')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+<article class="csr-card" id="c16">
+  <div class="csr-photo" onclick="openGallery('c16')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr12-GPHd7grCEv9QHLFT.jpg" alt="Singapore Red Cross Society — Community Partner 2023" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">❤ Humanitarian</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Singapore Red Cross Society</span><span class="csr-date">2023</span></div>
+    <h3 class="csr-title">Singapore Red Cross Society — Community Partner 2023</h3>
+    <p class="csr-desc">Royal Kings Group supported the Singapore Red Cross Society's humanitarian mission, contributing to emergency relief and community welfare programmes that serve the most vulnerable members of Singapore society.</p>
+    <button class="csr-btn" onclick="openGallery('c16')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+<article class="csr-card" id="c17">
+  <div class="csr-photo" onclick="openGallery('c17')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr13-AqEJoaixdmhcyPMk.jpg" alt="Caring Commuter Champion — Public Transport Safety" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🛡 Public Safety</span>
+    
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Land Transport Authority Singapore</span><span class="csr-date">2023</span></div>
+    <h3 class="csr-title">Caring Commuter Champion — Public Transport Safety</h3>
+    <p class="csr-desc">Royal Kings Group was recognised as a Caring Commuter Champion. All RKG employees are trained first responders, ready to assist anyone in need on Singapore's public transport network — embedding a culture of care into every aspect of the business.</p>
+    <button class="csr-btn" onclick="openGallery('c17')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos</button>
+  </div>
+</article>
+<article class="csr-card" id="c18">
+  <div class="csr-photo" onclick="openGallery('c18')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr10-2QeYFtGQvgE4ST1G.jpg" alt="Association of Psychotherapists & Counsellors Singapore (APACS)" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">💚 Mental Health</span>
+    <span class="csr-photo-count">2 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">APACS Singapore</span><span class="csr-date">2023</span></div>
+    <h3 class="csr-title">Association of Psychotherapists & Counsellors Singapore (APACS)</h3>
+    <p class="csr-desc">Royal Kings Group was recognised by the Association of Psychotherapists and Counsellors Singapore for contributions to mental health awareness and community wellbeing — supporting holistic employee and societal wellness initiatives.</p>
+    <button class="csr-btn" onclick="openGallery('c18')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (2)</button>
+  </div>
+</article>
+<article class="csr-card" id="c19">
+  <div class="csr-photo" onclick="openGallery('c19')" role="button" tabindex="0">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=420,h=320,fit=contain/XSgOr7vEzx2UoRJ7/csr07-jVS5wKEdOUENBZBs.jpg" alt="Tamil Representative Council — TRC Education Fund Support 2023" loading="lazy">
+    <div class="csr-photo-overlay" aria-hidden="true"><div class="csr-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    <span class="csr-cat-badge">🎓 Education & Community</span>
+    <span class="csr-photo-count">3 photos</span>
+  </div>
+  <div class="csr-body">
+    <div class="csr-meta"><span class="csr-org">Tamils Representative Council (TRC)</span><span class="csr-date">2023</span></div>
+    <h3 class="csr-title">Tamil Representative Council — TRC Education Fund Support 2023</h3>
+    <p class="csr-desc">Mr. K. Shanmugam, Minister for Home Affairs and Minister for Law, awarded Royal Kings Group for years of dedicated support to the Tamil Representative Council and the TRC Education Fund — empowering Tamil students and strengthening the Tamil community in Singapore.</p>
+    <button class="csr-btn" onclick="openGallery('c19')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Click Here for Photos (3)</button>
+  </div>
+</article>
+    </div>
+  </section>
+
   <section class="cta-band">
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--text);margin-bottom:10px;">
-      Ready to <em style="font-style:italic;color:var(--gold);">Experience the Difference?</em>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,40px);font-weight:300;color:var(--text);margin-bottom:10px;">
+      Partner With <em style="font-style:italic;color:var(--gold);">Our Community Mission</em>
     </h2>
     <div class="gold-rule"></div>
-    <p>Join the growing community of businesses across Asia-Pacific who trust Royal Kings Group as their strategic partner.</p>
+    <p>Royal Kings Group welcomes collaboration with organisations, community groups and individuals who share our commitment to building a stronger, more inclusive Singapore.</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-      <a href="contact.html" class="btn-p">Start Your Journey</a>
-      <a href="pillars.html" class="btn-g">Explore Our Services</a>
+      <a href="contact.html" class="btn-p">Get In Touch</a>
+      <a href="about.html" class="btn-g">About the Group</a>
     </div>
   </section>
 </main>
@@ -391,140 +562,125 @@ footer{background:var(--deep);border-top:1px solid rgba(201,168,76,.14);padding:
       <p>A Singapore-headquartered diversified business platform, trusted across Asia-Pacific since 2013.</p>
       <span class="footer-tag">Excellence · Integrity · Performance</span>
     </div>
-    <div class="footer-col">
-      <h5>Company</h5>
-      <a href="about.html">About Us</a>
-      <a href="about.html#vision">Vision &amp; Mission</a>
-      <a href="about.html#founder">Founder &amp; Chairman</a>
-      <a href="about.html#csr">Corporate Social Responsibility</a>
-      <a href="awards.html">Awards</a>
-      <a href="videos.html">Videos</a>
-    </div>
-    <div class="footer-col">
-      <h5>Our Pillars</h5>
-      <a href="pillars.html#tech">Technology &amp; Digital</a>
-      <a href="pillars.html#consultancy">Corporate Consultancy</a>
-      <a href="pillars.html#hospitality">Hospitality &amp; Events</a>
-      <a href="pillars.html#trading">Global Trading</a>
-      <a href="pillars.html#bullion">Royal Kings Bullion</a>
-    </div>
-    <div class="footer-col">
-      <h5>Connect</h5>
-      <a href="mailto:contact@royalkingsgroup.com">contact@royalkingsgroup.com</a>
-      <a href="tel:+6562260405">+65 6226 0405</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="memberships.html">Memberships</a>
-      <a href="news.html">News</a>
-      <a href="sitemap.html">Sitemap</a>
-      <a href="disclaimer.html">Disclaimer</a>
-    </div>
+    <div class="footer-col"><h5>Company</h5><a href="about.html">About Us</a><a href="about.html#vision">Vision &amp; Mission</a><a href="about.html#founder">Founder &amp; Chairman</a><a href="about.html#csr">Corporate Social Responsibility</a><a href="awards.html">Awards</a><a href="videos.html">Videos</a></div>
+    <div class="footer-col"><h5>Our Pillars</h5><a href="pillars.html#tech">Technology &amp; Digital</a><a href="pillars.html#consultancy">Corporate Consultancy</a><a href="pillars.html#hospitality">Hospitality &amp; Events</a><a href="pillars.html#trading">Global Trading</a><a href="pillars.html#bullion">Royal Kings Bullion</a></div>
+    <div class="footer-col"><h5>Connect</h5><a href="mailto:contact@royalkingsgroup.com">contact@royalkingsgroup.com</a><a href="tel:+6562260405">+65 6226 0405</a><a href="testimonials.html">Testimonials</a><a href="memberships.html">Memberships</a><a href="news.html">News</a><a href="sitemap.html">Sitemap</a><a href="disclaimer.html">Disclaimer</a></div>
   </div>
   <div class="footer-bottom"><p>© 2013–2026 Royal Kings Group. All rights reserved.</p></div>
 </footer>
 <div id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-title">
   <div id="lb-box">
-    <button id="lb-close" onclick="closeLb()" aria-label="Close">&#x2715;</button>
-    <div id="lb-spin" aria-hidden="true">
+    <button id="lb-close" onclick="closeLb()" aria-label="Close gallery">&#x2715;</button>
+    <div id="lb-spinner" aria-hidden="true">
       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
         <path d="M21 12a9 9 0 1 1-6.219-8.56" stroke-linecap="round"/>
       </svg>
     </div>
-    <img id="lb-img" src="" alt="Testimonial letter">
+    <img id="lb-img" src="" alt="CSR photo">
     <div id="lb-cap">
-      <span id="lb-title"></span>
+      <div id="lb-cap-text"><p id="lb-title"></p><p id="lb-org"></p></div>
       <div class="lb-nav">
-        <button class="lb-nbtn" id="lb-prev" onclick="lbNav(-1)" aria-label="Previous">&#8249;</button>
+        <button class="lb-nbtn" id="lb-prev" onclick="lbNav(-1)" aria-label="Previous photo">&#8249;</button>
         <span id="lb-ctr"></span>
-        <button class="lb-nbtn" id="lb-next" onclick="lbNav(1)" aria-label="Next">&#8250;</button>
+        <button class="lb-nbtn" id="lb-next" onclick="lbNav(1)" aria-label="Next photo">&#8250;</button>
       </div>
     </div>
   </div>
 </div>
 <script>
 'use strict';
-var LETTERS={
-  't01':{'img':'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/01-lBhB3qkKVnEf0IuG.jpg','label':'People\'s Association'},
-  't02':{'img':'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/02-pzqQOAU7w02cjXQJ.jpg','label':'Migrant Workers\' Centre'},
-  't03':{'img':'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/03-fD0r8QFa8q3BWVog.jpg','label':'Yuhua Community Club'},
-  't04':{'img':'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/04-Hyk1uqVKS854m97t.jpg','label':'Federation of Singapore Indian Muslims (FSIM)'},
-  't05':{'img':'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/05-n6FbUu59tTabKIwd.jpg','label':'Tamils Representative Council (TRC)'},
-  't06':{'img':'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/06-nq1pFezYsc05YuMf.jpg','label':'Jamiyah Singapore'},
-  't07':{'img':'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/07-uxlMkkWxwHGqkw2O.jpg','label':'Sree Narayana Mission (Singapore)'},
-  't08':{'img':'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/08-PW4m64BFXeizKPXS.jpg','label':'Lembaga Pendatbir Masjid Al-Amin'},
-  't09':{'img':'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/09-gR1ToUskWksCBAwg.jpg','label':'Singapore Kadaiyanallur Muslim League'},
-  't10':{'img':'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/10-QNfbsUK4tJwbik1V.jpg','label':'Bethel Community Services'},
-  't11':{'img':'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/11-nuFg2RYdI6Rf0jDB.jpg','label':'Masjid Maarof'},
-  't12':{'img':'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/12-zYGnzaMxaDlWgUP3.jpg','label':'Contribute.sg'}
+var GALLERY = {
+  'c01':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr44-xdb6fQIxbZql9Upu.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr45-SYKdUQ8QyT7fuEF1.jpg'],title:'TRC National Day Dinner — Silver Sponsor',org:'Tamils Representative Council (TRC)',date:'August 2025'},
+  'c02':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr42-Oq9oCGopnmJZ7HHy.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr43-zXw2JJNy1P1IRoTq.jpg'],title:'Semmozhi 25 Tamil Cultural Celebration — SG60',org:'Semmozhi Social, Literary & Music Tamil Association',date:'17 May 2025'},
+  'c03':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr38-RcJJTWNNYpPGvwDf.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr41-VwKb8vnBG6kT6b02.jpg'],title:'Jampacked@Radin Mas — Jamiyah Singapore Community Partner',org:'Jamiyah Singapore',date:'2025'},
+  'c04':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr36-iR1EQEsKWRvpnpiC.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr37-0cUDS5vl6jXS2CS5.jpg'],title:'Kolam Ayer 59th National Day Celebration',org:'Kolam Ayer Citizens\' Consultative Committee',date:'August 2024'},
+  'c05':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr34-5dhhtDvDQfpyqpDz.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr35-sIZwQwsqY1lg97cZ.jpg'],title:'Yuhua Community Club — Donation Appreciation',org:'Yuhua Community Club',date:'2024'},
+  'c06':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr32-No2GKHCwe9W23nc8.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr33-tvCPPEZPolmXwm09.jpg'],title:'Masjid Sultan — Ramadan Contributions 2024',org:'Masjid Sultan',date:'Ramadan 2024'},
+  'c07':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr30-pmwV97JvSEDPZw8A.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr31-unSeLZ3KWS4WXVBP.jpg'],title:'FSIM Harmonious Community Iftar — Bencoolen Masjid',org:'Federation of Singapore Indian Muslims (FSIM)',date:'24 March 2024'},
+  'c08':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr28-E8jwIfI1u1o1ARi3.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr29-5lJhBhKF2NNoIIbE.jpg'],title:'Sree Narayana Mission — Iftar for Community Leaders',org:'Sree Narayana Mission Singapore',date:'2024'},
+  'c09':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr26-0ZTJ5qUzu3TrA7x2.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr27-Wh1qeYO4V5OXhXhI.jpg'],title:'Kolam Ayer Division — Lunar New Year Lunch 2024',org:'Kolam Ayer Division, Jalan Besar GRC',date:'February 2024'},
+  'c10':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr24-b6PAw3ftyki3yPJr.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr25-fFyHTuiSLcEA2s7F.jpg'],title:'"Inclusivity 4 All" Live Concert Charity Sponsorship',org:'Marine Parade GRC',date:'2024'},
+  'c11':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr22-g49WdoP3I9ASXeLC.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr23-bMtWKyj2D0pydA1n.jpg'],title:'Night Respite @ Sree Narayana Mission — 24/7 Caregiver Support',org:'Sree Narayana Mission Singapore',date:'2024'},
+  'c12':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr20-jAk8YBX91puSmynT.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr21-4dTF0CUqy5lByvO6.jpg'],title:'Marine Parade GROs & Geylang Serai — Community Award',org:'South East CDC / Marine Parade GROs',date:'2023'},
+  'c13':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr18-mpRp4uhXrhkDYZhp.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr19-BO0Bn2jBIXGkKuE8.jpg'],title:'President of Singapore Award — Contributions to LISHA',org:'LISHA Singapore',date:'2023'},
+  'c14':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr16-rcwWRnixlQtgg49f.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr17-BCZbFG1JjnqqHjSp.jpeg'],title:'Federation of Singapore Indian Muslims (FSIM) — Long-Term Support',org:'Federation of Singapore Indian Muslims (FSIM)',date:'2023'},
+  'c15':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr14-N1LwH28vZeTkCXXi.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr15-bcpGzrheMOOfReJP.jpeg'],title:'Tharakai Literary Circle — A*STAR Creations Children\'s Day 2023',org:'Tharakai Literary Circle / A*STAR Creations',date:'October 2023'},
+  'c16':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr12-GPHd7grCEv9QHLFT.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr13-AqEJoaixdmhcyPMk.jpg'],title:'Singapore Red Cross Society — Community Partner 2023',org:'Singapore Red Cross Society',date:'2023'},
+  'c17':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr13-AqEJoaixdmhcyPMk.jpg'],title:'Caring Commuter Champion — Public Transport Safety',org:'Land Transport Authority Singapore',date:'2023'},
+  'c18':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr10-2QeYFtGQvgE4ST1G.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr11-M6BnYMqUI1IsPa9f.jpg'],title:'Association of Psychotherapists & Counsellors Singapore (APACS)',org:'APACS Singapore',date:'2023'},
+  'c19':{photos:['https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr07-jVS5wKEdOUENBZBs.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr08-yAqP2cZPjFyLbwi1.jpg','https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1400,fit=contain/XSgOr7vEzx2UoRJ7/csr09-wWFc189dtZXd9fw7.jpg'],title:'Tamil Representative Council — TRC Education Fund Support 2023',org:'Tamils Representative Council (TRC)',date:'2023'}
 };
-var KEYS=Object.keys(LETTERS);
-var curr=-1;
-function openLetter(id,imgSrc,label){
-  curr=KEYS.indexOf(id);
-  loadImg(id);
-  document.getElementById('lb').classList.add('open');
+var currId=null; var currPhotos=[]; var currIdx=-1;
+
+function openGallery(id){
+  var g=GALLERY[id]; if(!g)return;
+  currId=id; currPhotos=g.photos; currIdx=0;
+  loadPhoto();
+  var lb=document.getElementById('lb');
+  lb.style.display='flex'; lb.classList.add('open');
   document.body.style.overflow='hidden';
   updNav();
-  setTimeout(function(){document.getElementById('lb-close').focus();},180);
+  setTimeout(function(){ document.getElementById('lb-close').focus(); },180);
 }
-function loadImg(id){
-  var d=LETTERS[id];
+
+function loadPhoto(){
   var img=document.getElementById('lb-img');
-  var spin=document.getElementById('lb-spin');
-  img.classList.add('fading');
-  spin.classList.add('show');
-  var src=d.img.replace(/w=\d+/,'w=1400').replace(/fit=crop/,'fit=contain').replace(/,h=\d+/,'');
-  img.onload=function(){img.classList.remove('fading');spin.classList.remove('show');};
-  img.onerror=function(){img.src=d.img;spin.classList.remove('show');img.classList.remove('fading');};
-  img.src=src; img.alt='Testimonial letter - '+d.label;
-  document.getElementById('lb-title').textContent=d.label;
-  document.getElementById('lb-ctr').textContent=(curr+1)+' / '+KEYS.length;
+  var spin=document.getElementById('lb-spinner');
+  var g=GALLERY[currId];
+  img.classList.add('fading'); spin.classList.add('show');
+  img.onload=function(){ img.classList.remove('fading'); spin.classList.remove('show'); };
+  img.onerror=function(){ spin.classList.remove('show'); img.classList.remove('fading'); };
+  img.src=currPhotos[currIdx];
+  img.alt=(g.title||'')+ ' — photo '+(currIdx+1);
+  document.getElementById('lb-title').textContent=g.title||'';
+  document.getElementById('lb-org').textContent=(g.org||'') + (g.date?' · '+g.date:'');
+  document.getElementById('lb-ctr').textContent=(currIdx+1)+' / '+currPhotos.length;
 }
+
 function closeLb(){
-  document.getElementById('lb').classList.remove('open');
+  var lb=document.getElementById('lb');
+  lb.classList.remove('open'); lb.style.display='';
   document.getElementById('lb-img').src='';
   document.body.style.overflow='';
+  currId=null; currPhotos=[]; currIdx=-1;
 }
+
 function lbNav(dir){
-  var n=curr+dir;
-  if(n<0||n>=KEYS.length)return;
-  curr=n;loadImg(KEYS[curr]);updNav();
+  var n=currIdx+dir; if(n<0||n>=currPhotos.length)return;
+  currIdx=n; loadPhoto(); updNav();
 }
 function updNav(){
-  document.getElementById('lb-prev').disabled=(curr<=0);
-  document.getElementById('lb-next').disabled=(curr>=KEYS.length-1);
-  document.getElementById('lb-ctr').textContent=(curr+1)+' / '+KEYS.length;
+  document.getElementById('lb-prev').disabled=(currIdx<=0);
+  document.getElementById('lb-next').disabled=(currIdx>=currPhotos.length-1);
+  document.getElementById('lb-ctr').textContent=(currIdx+1)+' / '+currPhotos.length;
 }
-document.getElementById('lb').addEventListener('click',function(e){if(e.target===this)closeLb();});
+document.getElementById('lb').addEventListener('click',function(e){ if(e.target===this)closeLb(); });
 document.addEventListener('keydown',function(e){
   if(!document.getElementById('lb').classList.contains('open'))return;
   if(e.key==='Escape')closeLb();
   if(e.key==='ArrowLeft')lbNav(-1);
   if(e.key==='ArrowRight')lbNav(1);
 });
+/* Keyboard access for photo thumbnails */
+document.querySelectorAll('.csr-photo').forEach(function(el){
+  el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); el.click(); } });
+});
 function openDrawer(){var d=document.getElementById('mobileDrawer'),o=document.getElementById('drawerOverlay'),h=document.getElementById('hamburger');if(!d)return;d.classList.add('open');d.setAttribute('aria-hidden','false');o.classList.add('open');h.classList.add('open');h.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
 function closeDrawer(){var d=document.getElementById('mobileDrawer'),o=document.getElementById('drawerOverlay'),h=document.getElementById('hamburger');if(!d)return;d.classList.remove('open');d.setAttribute('aria-hidden','true');o.classList.remove('open');h.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}
 (function(){
   var h=document.getElementById('hamburger');
-  if(h)h.addEventListener('click',function(){this.classList.contains('open')?closeDrawer():openDrawer();});
+  if(h)h.addEventListener('click',function(){ this.classList.contains('open')?closeDrawer():openDrawer(); });
   var o=document.getElementById('drawerOverlay');
   if(o)o.addEventListener('click',closeDrawer);
-  window.addEventListener('scroll',function(){var n=document.getElementById('mainNav');if(n)n.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
-})();
-
-/* Touch dropdown support */
-(function(){
+  window.addEventListener('scroll',function(){ var n=document.getElementById('mainNav'); if(n)n.classList.toggle('scrolled',window.scrollY>60); },{passive:true});
   ['newsDropdown','aboutDropdown'].forEach(function(did){
     var dd=document.getElementById(did);
-  if(dd){
-    dd.addEventListener('touchstart',function(e){
+    if(dd){
       var menu=dd.querySelector('.nav-dropdown-menu');
-      menu.style.display=menu.style.display==='flex'?'':'flex';
-      e.stopPropagation();
-    },{passive:true});
-    document.addEventListener('touchstart',function(e){
-      if(!dd.contains(e.target)){var m=dd.querySelector('.nav-dropdown-menu');if(m)m.style.display='';}
-    },{passive:true});
-  }
+      dd.addEventListener('touchstart',function(e){ var isOpen=menu.style.display==='flex'; menu.style.display=isOpen?'':'flex'; if(!isOpen)e.stopPropagation(); },{passive:true});
+      document.addEventListener('touchstart',function(e){ if(!dd.contains(e.target)&&menu)menu.style.display=''; },{passive:true});
+    }
+  });
 })();
 </script>
 </body>

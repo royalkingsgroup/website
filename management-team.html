@@ -19,7 +19,7 @@ body{font-family:'Inter','Raleway',sans-serif;background:var(--deep);color:var(-
 .nav-logo-img{height:42px;width:auto;object-fit:contain;flex-shrink:0;}
 .nav-brand-text{font-family:'Cinzel',serif;font-size:13px;letter-spacing:2.5px;font-weight:700;color:rgba(240,236,224,.95);text-transform:uppercase;white-space:nowrap;}
 @media(max-width:1000px){.nav-brand-text{font-size:11px;letter-spacing:1.5px;}}
-@media(max-width:640px){.nav-brand-text{display:none;}}
+@media(max-width:640px){.nav-brand-text{font-size:10px;letter-spacing:1.5px;}}@media(max-width:400px){.nav-brand-text{font-size:9px;letter-spacing:1px;}}
 .nav-links{display:flex;align-items:center;gap:16px;flex:1;justify-content:flex-end;padding-left:20px;}
 .nav-links a,.nav-links .nav-dropdown-trigger{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(240,236,224,.78);text-decoration:none;transition:color var(--t);white-space:nowrap;position:relative;padding-bottom:3px;}
 .nav-links a::after,.nav-dropdown-trigger::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width var(--t);}
@@ -194,7 +194,16 @@ footer{background:var(--deep);border-top:1px solid rgba(201,168,76,.14);padding:
   </a>
   <div class="nav-links" role="menubar">
     <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
+    <div class="nav-dropdown" id="aboutDropdown">
+      <a href="our-story.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+        About Us <span class="dropdown-arrow">&#x25BE;</span>
+      </a>
+      <div class="nav-dropdown-menu" role="menu">
+        <a href="our-story.html" role="menuitem"><span class="dd-icon">&#x1F4D6;</span> Our Story</a>
+        <a href="founder.html" role="menuitem"><span class="dd-icon">&#x1F451;</span> Founder &amp; Chairman</a>
+        <a href="csr.html" role="menuitem"><span class="dd-icon">&#x1F91D;</span> Corporate Social Responsibility</a>
+      </div>
+    </div>
     <a href="pillars.html">Our Pillars</a>
     <a href="awards.html">Awards</a>
     <a href="videos.html">Videos</a>
@@ -219,7 +228,12 @@ footer{background:var(--deep);border-top:1px solid rgba(201,168,76,.14);padding:
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true">
   <a href="index.html" onclick="closeDrawer()">Home</a>
-  <a href="about.html" onclick="closeDrawer()">About Us</a>
+  <div class="mob-about-group">
+    <span class="mob-about-label">&#x25BE; About Us</span>
+    <a href="our-story.html" onclick="closeDrawer()" class="mob-sub-link">Our Story</a>
+    <a href="founder.html" onclick="closeDrawer()" class="mob-sub-link">Founder &amp; Chairman</a>
+    <a href="csr.html" onclick="closeDrawer()" class="mob-sub-link">CSR</a>
+  </div>
   <a href="pillars.html" onclick="closeDrawer()">Our Pillars</a>
   <a href="awards.html" onclick="closeDrawer()">Awards</a>
   <a href="videos.html" onclick="closeDrawer()">Videos</a>
@@ -436,7 +450,8 @@ function closeDrawer(){var d=document.getElementById('mobileDrawer'),o=document.
   var o=document.getElementById('drawerOverlay');
   if(o)o.addEventListener('click',closeDrawer);
   window.addEventListener('scroll',function(){var n=document.getElementById('mainNav');if(n)n.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
-  var dd=document.getElementById('newsDropdown');
+  ['newsDropdown','aboutDropdown'].forEach(function(did){
+    var dd=document.getElementById(did);
   if(dd){
     dd.addEventListener('touchstart',function(e){
       var menu=dd.querySelector('.nav-dropdown-menu');

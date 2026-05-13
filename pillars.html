@@ -248,7 +248,7 @@ footer{background:var(--deep);border-top:1px solid rgba(201,168,76,0.14);padding
 .nav-logo-img{height:42px;width:auto;object-fit:contain;flex-shrink:0;}
 .nav-brand-text{font-family:'Cinzel',serif;font-size:13px;letter-spacing:2.5px;font-weight:700;color:rgba(240,236,224,0.95);text-transform:uppercase;white-space:nowrap;line-height:1;}
 @media(max-width:1000px){.nav-brand-text{font-size:11px;letter-spacing:1.5px;}}
-@media(max-width:640px){.nav-brand-text{display:none;}}
+@media(max-width:640px){.nav-brand-text{font-size:10px;letter-spacing:1.5px;}}@media(max-width:400px){.nav-brand-text{font-size:9px;letter-spacing:1px;}}
 
 /* ═══ TYPOGRAPHY UPGRADE — Inter font, improved readability ═══ */
 body{font-family:'Inter','Raleway',sans-serif;}
@@ -309,7 +309,16 @@ h1,h2,h3,h4,h5,h6{font-family:'Cinzel',serif;}
   </a>
   <div class="nav-links" role="menubar">
     <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
+    <div class="nav-dropdown" id="aboutDropdown">
+      <a href="our-story.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+        About Us <span class="dropdown-arrow">&#x25BE;</span>
+      </a>
+      <div class="nav-dropdown-menu" role="menu">
+        <a href="our-story.html" role="menuitem"><span class="dd-icon">&#x1F4D6;</span> Our Story</a>
+        <a href="founder.html" role="menuitem"><span class="dd-icon">&#x1F451;</span> Founder &amp; Chairman</a>
+        <a href="csr.html" role="menuitem"><span class="dd-icon">&#x1F91D;</span> Corporate Social Responsibility</a>
+      </div>
+    </div>
     <a href="pillars.html" class="active">Our Pillars</a>
     <a href="awards.html">Awards</a>
     <a href="videos.html">Videos</a>
@@ -334,7 +343,12 @@ h1,h2,h3,h4,h5,h6{font-family:'Cinzel',serif;}
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true">
   <a href="index.html" onclick="closeDrawer()">Home</a>
-  <a href="about.html" onclick="closeDrawer()">About Us</a>
+  <div class="mob-about-group">
+    <span class="mob-about-label">&#x25BE; About Us</span>
+    <a href="our-story.html" onclick="closeDrawer()" class="mob-sub-link">Our Story</a>
+    <a href="founder.html" onclick="closeDrawer()" class="mob-sub-link">Founder &amp; Chairman</a>
+    <a href="csr.html" onclick="closeDrawer()" class="mob-sub-link">CSR</a>
+  </div>
   <a href="pillars.html" onclick="closeDrawer()" class="active">Our Pillars</a>
   <a href="awards.html" onclick="closeDrawer()">Awards</a>
   <a href="videos.html" onclick="closeDrawer()">Videos</a>
@@ -535,7 +549,8 @@ function closeDrawer(){var d=document.getElementById('mobileDrawer'),o=document.
 
 /* Touch dropdown support */
 (function(){
-  var dd=document.getElementById('newsDropdown');
+  ['newsDropdown','aboutDropdown'].forEach(function(did){
+    var dd=document.getElementById(did);
   if(dd){
     dd.addEventListener('touchstart',function(e){
       var menu=dd.querySelector('.nav-dropdown-menu');
