@@ -18,7 +18,7 @@ body{font-family:'Raleway',sans-serif;background:var(--deep);color:var(--text);o
 #mainNav.scrolled{background:rgba(10,10,15,.99);box-shadow:0 2px 20px rgba(0,0,0,.5);}
 /* .nav-logo moved to NAV LOGO WITH BRAND TEXT section */
 .nav-logo img{height:46px;width:auto;object-fit:contain;}
-.nav-links{display:flex;align-items:center;gap:20px;flex:1;justify-content:flex-end;}
+.nav-links{display:flex;align-items:center;gap:16px;flex:1;justify-content:flex-end;padding-left:20px;}
 .nav-links a{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:rgba(240,236,224,.78);text-decoration:none;transition:color var(--t);white-space:nowrap;position:relative;padding-bottom:3px;}
 .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width var(--t);}
 .nav-links a:hover::after,.nav-links a.active::after{width:100%;}
@@ -226,6 +226,35 @@ h1,h2,h3,h4,h5,h6{font-family:'Cinzel',serif;}
 /* Footer text */
 .footer-brand p,.footer-col a{font-family:'Inter',sans-serif;font-weight:400;color:rgba(200,190,170,0.75);}
 .footer-col a:hover{color:rgba(255,255,255,0.9);}
+
+
+
+/* ─── NEWS DROPDOWN ─── */
+.nav-dropdown{position:relative;display:flex;align-items:center;}
+.nav-dropdown-trigger{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(240,236,224,.78);text-decoration:none;transition:color var(--t);white-space:nowrap;position:relative;padding-bottom:3px;cursor:default;display:flex;align-items:center;gap:4px;}
+.nav-dropdown-trigger::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width var(--t);}
+.nav-dropdown-trigger:hover::after,.nav-dropdown-trigger.active::after{width:100%;}
+.nav-dropdown-trigger:hover,.nav-dropdown-trigger.active{color:var(--gold);}
+.dropdown-arrow{font-size:9px;transition:transform var(--t);}
+.nav-dropdown:hover .dropdown-arrow{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 2px);right:-12px;min-width:200px;margin-top:0;background:rgba(10,10,15,.98);border:1px solid rgba(201,168,76,.22);border-radius:3px;padding:10px 0 6px;display:none;flex-direction:column;z-index:1100;box-shadow:0 14px 44px rgba(0,0,0,.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);animation:ddIn .2s ease;}
+@keyframes ddIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;background:transparent;}
+
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown-menu:hover{display:flex;}
+.nav-dropdown-menu a{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(240,236,224,.78);text-decoration:none;padding:11px 20px;display:flex;align-items:center;gap:10px;transition:color var(--t),background var(--t);white-space:nowrap;}
+.nav-dropdown-menu a:hover{color:var(--gold);background:rgba(201,168,76,.08);}
+.dd-icon{font-size:13px;}
+/* Mobile news sub-menu */
+.mob-news-group{display:flex;flex-direction:column;border-bottom:1px solid rgba(201,168,76,.1);padding-bottom:2px;}
+.mob-news-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);padding:11px 0 6px;font-weight:700;cursor:default;}
+.mob-sub-link{font-size:10px!important;letter-spacing:2px!important;padding:7px 0 7px 16px!important;border-bottom:none!important;color:rgba(240,236,224,.7)!important;display:block;}
+.mob-sub-link.active{color:var(--gold)!important;}
+.mob-sub-link:hover{color:var(--gold)!important;padding-left:20px!important;}
+
+/* Nav spacing adjustments */
+@media(max-width:1200px){.nav-links{gap:14px;padding-left:16px;}}
+@media(max-width:1000px){.nav-links{gap:11px;padding-left:12px;}}
 </style>
 </head>
 <body>
@@ -242,9 +271,18 @@ h1,h2,h3,h4,h5,h6{font-family:'Cinzel',serif;}
     <a href="pillars.html">Our Pillars</a>
     <a href="awards.html">Awards</a>
     <a href="videos.html">Videos</a>
-    <a href="news.html" class="active">News</a>
+    <div class="nav-dropdown" id="newsDropdown">
+      <a href="news.html" class="nav-dropdown-trigger active" aria-haspopup="true" aria-expanded="false">
+        News <span class="dropdown-arrow">&#x25BE;</span>
+      </a>
+      <div class="nav-dropdown-menu" role="menu">
+        <a href="news.html" role="menuitem"><span class="dd-icon">&#x1F4F0;</span> News Feed</a>
+        <a href="newspaper-features.html" role="menuitem"><span class="dd-icon">&#x1F4F0;</span> Newspaper Features</a>
+      </div>
+    </div>
     <a href="memberships.html">Memberships</a>
     <a href="testimonials.html">Testimonials</a>
+    <a href="management-team.html">Our Team</a>
     <a href="contact.html" class="nav-cta">Contact Us</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
@@ -258,9 +296,14 @@ h1,h2,h3,h4,h5,h6{font-family:'Cinzel',serif;}
   <a href="pillars.html" onclick="closeDrawer()">Our Pillars</a>
   <a href="awards.html" onclick="closeDrawer()">Awards</a>
   <a href="videos.html" onclick="closeDrawer()">Videos</a>
-  <a href="news.html" onclick="closeDrawer()" class="active">News</a>
+  <div class="mob-news-group">
+    <span class="mob-news-label">&#x25BE; News</span>
+    <a href="news.html" onclick="closeDrawer()" class="mob-sub-link active">News Feed</a>
+    <a href="newspaper-features.html" onclick="closeDrawer()" class="mob-sub-link">Newspaper Features</a>
+  </div>
   <a href="memberships.html" onclick="closeDrawer()">Memberships</a>
   <a href="testimonials.html" onclick="closeDrawer()">Testimonials</a>
+  <a href="management-team.html" onclick="closeDrawer()">Our Team</a>
   <a href="contact.html" onclick="closeDrawer()" style="color:var(--gold);">Contact Us</a>
 </nav>
 
@@ -642,6 +685,21 @@ function initNav(){
   if(o)o.addEventListener('click',closeDrawer);
   window.addEventListener('scroll',function(){var n=document.getElementById('mainNav');if(n)n.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
 }
+
+/* Touch dropdown support */
+(function(){
+  var dd=document.getElementById('newsDropdown');
+  if(dd){
+    dd.addEventListener('touchstart',function(e){
+      var menu=dd.querySelector('.nav-dropdown-menu');
+      menu.style.display=menu.style.display==='flex'?'':'flex';
+      e.stopPropagation();
+    },{passive:true});
+    document.addEventListener('touchstart',function(e){
+      if(!dd.contains(e.target)){var m=dd.querySelector('.nav-dropdown-menu');if(m)m.style.display='';}
+    },{passive:true});
+  }
+})();
 </script>
 </body>
 </html>
