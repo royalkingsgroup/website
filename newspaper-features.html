@@ -1046,6 +1046,7 @@ function closeDrawer(){var d=document.getElementById('mobileDrawer'),o=document.
     dd.addEventListener('touchstart',function(e){ var isOpen=menu.style.display==='flex'; menu.style.display=isOpen?'':'flex'; if(!isOpen)e.stopPropagation(); },{passive:true});
     document.addEventListener('touchstart',function(e){ if(!dd.contains(e.target)&&menu)menu.style.display=''; },{passive:true});
   }
+  });
 })();
 </script>
 </body>
