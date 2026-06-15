@@ -1,0 +1,14 @@
+# Royal Kings Group Website
+# https://royalkingsgroup.github.io/website
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://royalkingsgroup.github.io/website/sitemap.xml
+
+# Crawl-delay (optional - be kind to crawlers)
+Crawl-delay: 1
+
+# Disallow admin paths (none for static site, but good practice)
+Disallow: /404.html
