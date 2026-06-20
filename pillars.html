@@ -2336,6 +2336,99 @@ main > *:first-child {
   gap: 8px !important;
   margin-top: 18px !important;
 }
+
+
+/* ── Pillars: gold bg pills, larger fonts overall ── */
+
+/* Service pills: gold bg + black text */
+.service-pill {
+  background: #C9A84C !important;
+  border: 1px solid #B8912A !important;
+  color: #111111 !important;
+  font-family: 'Raleway','Nunito Sans',sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: none !important;
+  padding: 9px 18px !important;
+  border-radius: 4px !important;
+  line-height: 1.3 !important;
+}
+.service-pill:hover {
+  background: #B8912A !important;
+  color: #FFFFFF !important;
+  border-color: #B8912A !important;
+}
+.service-pills {
+  gap: 10px !important;
+  margin-top: 22px !important;
+}
+
+/* Section headings: bigger */
+.section-title {
+  font-size: clamp(28px, 3.5vw, 50px) !important;
+}
+.section-eyebrow {
+  font-size: 10px !important;
+  letter-spacing: 5px !important;
+  color: #C0392B !important;
+}
+
+/* Body text: bigger, darker */
+.body-text, .body-text p {
+  font-size: 15px !important;
+  line-height: 1.9 !important;
+  color: #374151 !important;
+}
+
+/* Pillar legal name */
+.pillar-legal {
+  font-size: 12px !important;
+  letter-spacing: 1.5px !important;
+  color: #6B7280 !important;
+}
+
+/* Gold rule: red */
+.gold-rule { background: linear-gradient(to right, #C0392B, transparent) !important; }
+
+/* Section eyebrow: red */
+.section-eyebrow { color: #C0392B !important; }
+
+/* Fintech items: bigger */
+.fintech-item-title {
+  font-size: 13.5px !important;
+  color: #1A1A2E !important;
+  font-weight: 700 !important;
+}
+.fintech-item-sub {
+  font-size: 11.5px !important;
+  color: #6B7280 !important;
+}
+.fintech-item {
+  padding: 12px 14px !important;
+  gap: 12px !important;
+}
+
+/* Mobile responsive */
+@media(max-width:900px){
+  .service-pill { font-size: 11.5px !important; padding: 8px 14px !important; }
+  .body-text, .body-text p { font-size: 14px !important; }
+  .section-title { font-size: clamp(24px, 4vw, 38px) !important; }
+}
+@media(max-width:600px){
+  .service-pill {
+    font-size: 11px !important;
+    padding: 7px 12px !important;
+  }
+  .service-pills { gap: 8px !important; }
+  .body-text p { font-size: 13.5px !important; }
+  .fintech-item-title { font-size: 12.5px !important; }
+  .fintech-item-sub { font-size: 11px !important; }
+}
+@media(max-width:480px){
+  .service-pill { font-size: 10.5px !important; }
+  .fintech-grid { grid-template-columns: 1fr !important; }
+}
 </style>
 </head>
 <body>
