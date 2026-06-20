@@ -2291,6 +2291,96 @@ main > *:first-child {
 /* Homepage hero exception: it uses section.hero (not .page-hero) */
 /* Homepage doesn't need body padding since its hero fills full viewport */
 /* But we still need it for subpages — homepage hero handles offset differently */
+
+
+/* ── Our Story: black+red, bigger fonts ── */
+/* VM card top accent bar: gold→red */
+.vm-card-new::before { background: linear-gradient(to right, #C0392B, #111111) !important; }
+
+/* VM tag: gold→red */
+.vm-tag, .os-vm-label {
+  color: #C0392B !important;
+  font-size: 10px !important;
+  letter-spacing: 3.5px !important;
+}
+/* VM icon: gold→red */
+.vm-icon-box {
+  background: rgba(192,57,43,.08) !important;
+  border-color: rgba(192,57,43,.22) !important;
+}
+.vm-icon-box svg { stroke: #C0392B !important; }
+
+/* VM heading: bigger */
+.vm-sub, .os-vm-heading {
+  font-size: 24px !important;
+  color: #1A1A2E !important;
+}
+
+/* VM body text: bigger, darker */
+.vm-body, .os-vm-text {
+  font-size: 15px !important;
+  color: #374151 !important;
+  line-height: 1.85 !important;
+}
+
+/* Core Values: gold→red accents */
+.cv-title, .os-val-title {
+  color: #C0392B !important;
+  font-size: 11px !important;
+  letter-spacing: 2px !important;
+}
+.cv-card:hover, .os-val-card:hover {
+  border-color: rgba(192,57,43,.4) !important;
+  box-shadow: 0 8px 32px rgba(192,57,43,.12) !important;
+}
+.cv-text, .os-val-text {
+  font-size: 14px !important;
+  color: #374151 !important;
+  line-height: 1.75 !important;
+}
+.cv-icon { font-size: 32px !important; }
+
+/* Section headings on our-story */
+.story-title {
+  font-size: clamp(30px, 3.5vw, 50px) !important;
+}
+.story-body-p {
+  font-size: 15px !important;
+  line-height: 1.9 !important;
+  color: #374151 !important;
+}
+.sec-head {
+  font-size: clamp(26px, 3vw, 46px) !important;
+}
+
+/* Leadership text */
+.leadership-text p {
+  font-size: 15px !important;
+  line-height: 1.85 !important;
+  color: #374151 !important;
+}
+
+/* Gold rule: red */
+.gold-rule { background: linear-gradient(to right, #C0392B, transparent) !important; }
+
+/* Section eyebrow/label: gold→red */
+.story-label, .section-label, .os-section-eyebrow {
+  color: #C0392B !important;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .vm-sub, .os-vm-heading { font-size: 20px !important; }
+  .vm-body, .os-vm-text { font-size: 14px !important; }
+  .cv-text, .os-val-text { font-size: 13.5px !important; }
+  .cv-title { font-size: 10.5px !important; }
+  .story-body-p { font-size: 14px !important; }
+}
+@media(max-width:480px){
+  .vm-card-new { padding: 22px 18px !important; }
+  .cv-grid { grid-template-columns: repeat(2,1fr) !important; gap: 12px !important; }
+  .cv-card { padding: 18px 14px !important; }
+}
 </style>
 </head>
 <body>
