@@ -2060,6 +2060,14 @@ main > *:first-child {
 /* Homepage hero exception: it uses section.hero (not .page-hero) */
 /* Homepage doesn't need body padding since its hero fills full viewport */
 /* But we still need it for subpages — homepage hero handles offset differently */
+
+/* ── CSR: no hover changes ── */
+.csr-card:hover {
+  transform: none !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,.06) !important;
+  border-color: rgba(180,155,90,.15) !important;
+  background: #FFFFFF !important;
+}
 </style>
 </head>
 <body>
