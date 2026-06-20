@@ -2713,6 +2713,128 @@ h3 { font-size: clamp(14px, 2vw, 24px); }
   background: #FFFFFF !important;
   border-top: 1px solid rgba(0,0,0,.07) !important;
 }
+
+
+/* ── News: Facebook plugin centred layout ── */
+.nf-section {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 52px 24px !important;
+  background: #FFFFFF !important;
+}
+.nf-head {
+  text-align: center !important;
+  max-width: 640px !important;
+  margin: 0 auto 28px !important;
+}
+.nf-stats {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 40px !important;
+  margin-bottom: 28px !important;
+  text-align: center !important;
+}
+.nf-stat { text-align: center !important; }
+.nf-plugin-outer {
+  width: 100% !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 28px rgba(0,0,0,.1) !important;
+  border: 1px solid rgba(0,0,0,.08) !important;
+}
+.nf-plugin-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: #FFFFFF !important;
+}
+.nf-topbar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 16px !important;
+  background: #1877F2 !important;
+  border-radius: 10px 10px 0 0 !important;
+}
+.nf-iframe {
+  width: 100% !important;
+  height: 680px !important;
+  border: none !important;
+  display: block !important;
+}
+.nf-bottombar {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  padding: 12px 16px !important;
+  background: #FFFFFF !important;
+  border-top: 1px solid rgba(0,0,0,.07) !important;
+}
+.nf-corner-bl, .nf-corner-br { display: none !important; }
+@media(max-width:640px){
+  .nf-plugin-outer { max-width: 100% !important; }
+  .nf-iframe { height: 500px !important; }
+  .nf-stats { gap: 24px !important; }
+}
+
+
+/* ── News: remove extra space after Facebook embed ── */
+.nf-section {
+  padding-bottom: 0 !important;
+}
+.nf-plugin-outer {
+  margin-bottom: 0 !important;
+}
+.nf-plugin-card {
+  margin-bottom: 0 !important;
+}
+/* Remove any pseudo-element space */
+.nf-section::after,
+.nf-plugin-outer::after,
+.nf-plugin-card::after {
+  display: none !important;
+  content: none !important;
+}
+/* Remove bottom padding on the section wrapper */
+section.nf-section + * { margin-top: 0 !important; }
+
+
+/* ── News: trim 20% space after Facebook widget ── */
+.nf-bottombar {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+.nf-plugin-outer {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+.nf-section {
+  padding-bottom: 16px !important;
+}
+
+
+/* ── Facebook widget: exact width match + true centre ── */
+.nf-plugin-outer {
+  width: 520px !important;
+  max-width: 520px !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  left: -20px !important;
+}
+.nf-iframe {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+@media(max-width:640px){
+  .nf-plugin-outer {
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0 !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -2832,7 +2954,7 @@ h3 { font-size: clamp(14px, 2vw, 24px); }
 
         <iframe
           class="nf-iframe"
-          src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/100091498026763&tabs=timeline&width=600&height=680&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+          src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/100091498026763&tabs=timeline&width=500&height=680&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
           scrolling="yes"
           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
           title="Royal Kings Group — Facebook Page">
@@ -2856,8 +2978,7 @@ h3 { font-size: clamp(14px, 2vw, 24px); }
       </div>
     </div>
 
-  </section>
-</main>
+  </section></main>
 <footer role="contentinfo">
   <div class="footer-bottom">
     <p>&copy; 2013&ndash;2026 Royal Kings Group. All rights reserved.</p>
