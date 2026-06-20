@@ -2403,6 +2403,43 @@ main > *:first-child {
 /* Homepage hero exception: it uses section.hero (not .page-hero) */
 /* Homepage doesn't need body padding since its hero fills full viewport */
 /* But we still need it for subpages — homepage hero handles offset differently */
+
+
+/* ── Homepage popup: larger, clearer fonts ── */
+.microsite-about p, #ms-about p {
+  font-size: 15px !important;
+  line-height: 1.85 !important;
+  color: #111111 !important;
+  font-weight: 400 !important;
+  margin-bottom: 14px !important;
+}
+.microsite-about h3, .microsite-services h3 {
+  font-size: 11px !important;
+  letter-spacing: 3px !important;
+  color: #C0392B !important;
+  margin-bottom: 14px !important;
+}
+.service-list li, #ms-services li {
+  font-size: 14px !important;
+  color: #111111 !important;
+  padding: 8px 0 !important;
+  line-height: 1.6 !important;
+}
+.microsite-title, #ms-title {
+  font-size: clamp(22px, 3vw, 36px) !important;
+  letter-spacing: 1.5px !important;
+  color: #FFFFFF !important;
+}
+.microsite-tag, #ms-tag {
+  font-size: 10px !important;
+  letter-spacing: 3px !important;
+}
+/* Mobile */
+@media(max-width:768px){
+  .microsite-about p, #ms-about p { font-size: 13.5px !important; }
+  .service-list li, #ms-services li { font-size: 13px !important; }
+  .microsite-title, #ms-title { font-size: 20px !important; }
+}
 </style>
 </head>
 <body>
