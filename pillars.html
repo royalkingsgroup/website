@@ -2276,6 +2276,66 @@ main > *:first-child {
 /* Homepage hero exception: it uses section.hero (not .page-hero) */
 /* Homepage doesn't need body padding since its hero fills full viewport */
 /* But we still need it for subpages — homepage hero handles offset differently */
+
+
+/* ══ Pillar image backgrounds → white ══ */
+
+/* Remove ALL grey from fintech visual */
+.fintech-visual-wrap,
+.fintech-visual-wrap * {
+  background: #FFFFFF !important;
+}
+.fintech-visual {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(0,0,0,.06) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,.05) !important;
+}
+.ft-glow { background: none !important; }
+
+/* Remove grey from pillar-img-frame */
+.pillar-img-frame {
+  background: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 6px 32px rgba(0,0,0,.1) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+.pillar-img-frame img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Remove grey from fintech-visual-wrap container */
+.fintech-visual-wrap {
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* ══ Service pills → black bg, gold text ══ */
+.service-pill {
+  background: #111111 !important;
+  border: 1px solid rgba(201,168,76,.35) !important;
+  color: #C9A84C !important;
+  font-family: 'Cinzel',serif !important;
+  font-size: 8.5px !important;
+  letter-spacing: 2px !important;
+  padding: 7px 14px !important;
+  border-radius: 3px !important;
+  display: inline-block !important;
+  transition: background .2s, color .2s !important;
+}
+.service-pill:hover {
+  background: #C0392B !important;
+  color: #FFFFFF !important;
+  border-color: #C0392B !important;
+}
+.service-pills {
+  gap: 8px !important;
+  margin-top: 18px !important;
+}
 </style>
 </head>
 <body>
