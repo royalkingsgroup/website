@@ -2416,6 +2416,103 @@ h3 { font-size: clamp(14px, 2vw, 24px); }
   line-height: 1.75 !important;
 }
 @media(max-width:768px){ .why-mem-grid{grid-template-columns:1fr!important;gap:14px!important;} }
+
+
+/* ══ DARK GLOWING GOLD — Replaces all light gold on white ══ */
+:root {
+  --gold:       #7A5C00 !important;
+  --gold-light: #9A7B10 !important;
+  --gold-dark:  #5C4500 !important;
+}
+/* Override hex values used inline in CSS */
+/* Active nav — slightly brighter for dark nav bg */
+#mainNav .nav-link.active,
+#mainNav .nav-link:hover,
+.mob-link.active,
+.mob-sec-label,
+.dd-icon {
+  color: #C9A84C !important;
+}
+.nav-links a.active,
+.nav-links a:hover { color: #C9A84C !important; }
+
+/* All eyebrows, labels, tags — dark readable gold */
+.section-label, .section-eyebrow, .story-label,
+.vm-tag, .os-eyebrow, .os-section-eyebrow,
+.pillar-tag, .os-presence-pill,
+.filter-section-label, .os-pillar-pill,
+.fn-subtitle, .fn-section-heading,
+.why-mem-title, .card-title,
+.tm-title, .aw-card-icon,
+.np-pub-name, .np-country-ct,
+.np-stat-lbl, .stat-lbl, .sl,
+.cv-title, .os-val-title,
+.os-stat-lbl, .bc-sep, .bc-curr {
+  color: #7A5C00 !important;
+}
+/* Gold rules */
+.gold-rule {
+  background: linear-gradient(to right, #7A5C00, transparent) !important;
+}
+/* Visit website links */
+.card a[href], .mem-grid a {
+  color: #7A5C00 !important;
+}
+/* Italic accent text */
+.sec-head em, .story-title em, .section-title em,
+.leadership-text h2 em, .os-section-heading em,
+.page-hero h1 em, h1 em, h2 em {
+  color: #7A5C00 !important;
+}
+/* Gold borders → dark gold */
+[style*="#C9A84C"] { color: #7A5C00 !important; }
+[style*="color:var(--gold)"] { color: #7A5C00 !important; }
+
+/* Membership abbr circles — keep slightly lighter for contrast on white bg */
+.mem-grid [style*="color:var(--gold)"] { color: #9A7B10 !important; }
+
+/* Service pills — gold bg stays but slightly darker */
+.service-pill {
+  background: #9A7B10 !important;
+  border-color: #7A5C00 !important;
+  color: #FFFFFF !important;
+}
+.service-pill:hover {
+  background: #7A5C00 !important;
+}
+
+/* Gold stat numbers */
+.sn, .stat-num, .os-stat-num, .np-stat-num {
+  color: #C0392B !important;
+}
+
+/* Pillar card accent */
+.pillar-accent {
+  background: linear-gradient(to bottom, #C0392B, transparent) !important;
+}
+
+/* Tab btn / pub-pill active */
+.tab-btn.active, .tab-btn:hover {
+  background: #C0392B !important;
+  color: #FFFFFF !important;
+  border-color: #C0392B !important;
+}
+.pub-pill.active, .pub-pill:hover,
+.pill-btn.active, .pill-btn:hover {
+  background: #7A5C00 !important;
+  color: #FFFFFF !important;
+  border-color: #7A5C00 !important;
+}
+
+/* Why-mem card titles */
+.why-mem-title { color: #7A5C00 !important; }
+
+/* Membership card link */
+.mem-grid .card a { color: #7A5C00 !important; }
+.mem-grid .card a:hover { color: #5C4500 !important; }
+
+/* TM division */
+.tm-title { color: #7A5C00 !important; }
 </style>
 </head>
 <body>
