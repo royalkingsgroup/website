@@ -2745,6 +2745,49 @@ h3 { font-size: clamp(14px, 2vw, 24px); }
 
 /* TM division */
 .tm-title { color: #7A5C00 !important; }
+
+
+/* ══ PILLAR GRID — DEFINITIVE FINAL RULE (overrides all conflicts) ══ */
+body .pillar-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 10px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+/* Smaller desktop — still 5 columns but tighter */
+@media screen and (max-width:1280px) and (min-width:1025px){
+  body .pillar-cards-grid {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 8px !important;
+  }
+  .pillar-card { height: 340px !important; }
+  .pillar-title { font-size: 11px !important; padding: 7px 12px 2px !important; }
+  .pillar-sub   { font-size: 7.5px !important; padding: 2px 12px 7px !important; }
+}
+/* Laptop (1025–1280) */
+@media screen and (min-width:1025px){
+  body .pillar-cards-grid { grid-template-columns: repeat(5, 1fr) !important; }
+}
+/* Tablet landscape */
+@media screen and (max-width:1024px){
+  body .pillar-cards-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 12px !important; }
+  .pillar-card { height: 320px !important; }
+}
+/* Tablet portrait */
+@media screen and (max-width:768px){
+  body .pillar-cards-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+  .pillar-card { height: 280px !important; }
+}
+/* Large mobile */
+@media screen and (max-width:540px){
+  body .pillar-cards-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .pillar-card { height: 220px !important; }
+}
+/* Small mobile */
+@media screen and (max-width:360px){
+  .pillar-card { height: 190px !important; }
+}
 </style>
 </head>
 <body>
